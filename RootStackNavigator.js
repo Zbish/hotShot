@@ -5,16 +5,7 @@ import glimps from'./MyLiga'
 import addliga from'./AddLiga'
 import liga from'./Liga'
 
-
-export default class RootNavigator extends React.Component {
-  constructor(props) {
-    super(props);
-}
-  render() {
-    return <RootStackNavigator />
-  }
-}
-const RootStackNavigator = StackNavigator(
+export default RootStackNavigator = StackNavigator(
   {
     Login: {
       screen: home,
@@ -47,4 +38,4 @@ const RootStackNavigator = StackNavigator(
   {
     initialRouteName: 'MyLiga'
   }
-);
+)

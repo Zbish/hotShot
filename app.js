@@ -14,7 +14,7 @@ import {
 import { connect } from 'react-redux';
 import { addPerson, deletePerson } from './actions';
 import { StackNavigator } from 'react-navigation';
-import RootNavigation from './RootStackNavigator'
+import RootStackNavigator from './RootStackNavigator'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -41,13 +41,9 @@ class App extends Component {
   }
 
   render() {
-    return (
-    
-         <RootNavigation />
-  
+    return (<RootStackNavigator />
     )
-    
-  }
+           }
 }
 
 function mapStateToProps (state) {

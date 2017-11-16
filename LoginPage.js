@@ -8,11 +8,12 @@ export default class LoginPage extends Component {
   }
   navigateTo(name)
   {
-    this.props.navigation.navigate("AddLiga");
+    console.log("ffffff")
+    this.props.screenProps.navigation.navigate("MyLiga");
   }
   
   render() {
-    const {navigate} = this.props.navigation;
+    console.log(this.Props)
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -22,7 +23,7 @@ export default class LoginPage extends Component {
          let go play
          login page
         </Text>
-        <Button title='go to my liga' onPress={() => navigate("MyLiga")}>
+        <Button title='go to my liga' onPress={() => this.props.navigation.navigate("MyLiga")}>
         </Button>
       </View>
     );
