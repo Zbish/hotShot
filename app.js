@@ -13,8 +13,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { addPerson, deletePerson } from './actions';
-import { StackNavigator } from 'react-navigation';
-import RootStackNavigator from './RootStackNavigator'
+import RootStackNavigator from './src/navigator';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -22,7 +22,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-class App extends Component {
+export default class App extends Component {
   state = {
     inputValue: '',
   }
@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     return (<RootStackNavigator />
     )
-           }
+  }
 }
 
 function mapStateToProps (state) {
@@ -59,8 +59,8 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App)
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(App)
 

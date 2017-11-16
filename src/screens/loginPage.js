@@ -8,10 +8,9 @@ export default class LoginPage extends Component {
   }
   navigateTo(name)
   {
-    console.log("ffffff")
     this.props.screenProps.navigation.navigate("MyLiga");
   }
-  
+
   render() {
     console.log(this.Props)
     return (
@@ -21,7 +20,7 @@ export default class LoginPage extends Component {
         </Text>
         <Text style={styles.instructions}>
          let go play
-         login page
+         login page11
         </Text>
         <Button title='go to my liga' onPress={() => this.props.navigation.navigate("MyLiga")}>
         </Button>

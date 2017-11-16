@@ -1,25 +1,21 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import home from'./LoginPage'
-import glimps from'./MyLiga'
-import addliga from'./AddLiga'
-import liga from'./Liga'
+import loginPage from'./screens/loginPage'
+import myLiga from'./screens/myLiga'
+import addliga from'./screens/addLiga'
+import liga from'./screens/liga'
 
 export default RootStackNavigator = StackNavigator(
   {
     Login: {
-      screen: home,
+      screen: loginPage,
       navigationOptions: ({ navigation }) => ({
         header: null,
       }),
     },
-  },
-  {
     MyLiga: {
-      screen: glimps
-    }
-  },
-  {
+      screen: myLiga
+    },
     AddLiga: {
       screen: addliga,
       navigationOptions: ({ navigation }) => ({
