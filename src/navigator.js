@@ -6,7 +6,7 @@ import addliga from'./screens/addLiga'
 import liga from'./screens/liga'
 
 export default RootStackNavigator = StackNavigator(
-  {
+  { /////OMRI YA ZAIN!!!!
     Login: {
       screen: loginPage,
       navigationOptions: ({ navigation }) => ({
