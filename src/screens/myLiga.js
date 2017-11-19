@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import {StyleSheet} from 'react-native'
-import {Text,View} from 'react-native'
-
+import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
+import LigaList from '../components/LigaList'
 export default class MyLiga extends Component {
   constructor(props) {
     super(props)
   }
+  navigateTo(name)
+  {
+    this.props.navigation.navigate(name);
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-         this is my liga page
-        </Text>
-      </View>
+       <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
+        <LigaList goToLiga={()=>this.navigateTo('Liga')} />
+        <Button title='Add LIga' onPress={()=>this.navigateTo('AddLiga')}></Button>
+     </ImageBackground>
     );
   }
 }

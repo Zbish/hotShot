@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native'
-import {Text,View,Button} from 'react-native'
-
+import {TextInput,
+        Text,
+        View,
+        Button,
+        Image,
+        ImageBackground
+} from 'react-native'
+import LoginForm from '../components/LoginForm'
 export default class LoginPage extends Component {
   constructor(props) {
     super(props)
   }
   navigateTo(name)
   {
-    this.props.screenProps.navigation.navigate("MyLiga");
+    this.props.navigation.navigate(name);
   }
 
   render() {
     console.log(this.Props)
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to hot shot bet
-        </Text>
-        <Text style={styles.instructions}>
-         let go play
-         login page11
-        </Text>
-        <Button title='go to my liga' onPress={() => this.props.navigation.navigate("MyLiga")}>
+      <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
+         <Image source={require('../images/hotshot.png')} style={styles.logo}>
+              </Image>
+        <LoginForm />
+           <Button title='go to my liga' onPress={() => this.navigateTo("MyLiga")}>
         </Button>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -36,6 +38,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
     },
+    logo:{
+      width:200,
+      height:200
+  },
     welcome: {
       fontSize: 20,
       textAlign: 'center',

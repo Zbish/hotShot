@@ -7,6 +7,7 @@ import liga from'./screens/liga'
 
 export default RootStackNavigator = StackNavigator(
   { /////OMRI YA ZAIN!!!!
+
     Login: {
       screen: loginPage,
       navigationOptions: ({ navigation }) => ({
@@ -14,24 +15,31 @@ export default RootStackNavigator = StackNavigator(
       }),
     },
     MyLiga: {
-      screen: myLiga
+      screen: myLiga,
+      navigationOptions: {
+        title: 'MY LIGA',
+        headerStyle: { backgroundColor: 'green' },
+        headerTitleStyle: { color: '#e2ac56' },
+      }
     },
     AddLiga: {
       screen: addliga,
-      navigationOptions: ({ navigation }) => ({
-        header: null,
-      }),
+      navigationOptions: {
+        title: 'Add Liga',
+        headerStyle: { backgroundColor: 'green' },
+        headerTitleStyle: { color: '#e2ac56' },
+      }
     },
+    Liga:{
+      screen:liga,
+      navigationOptions: {
+        title: 'LIGA Name',
+        headerStyle: { backgroundColor: 'green' },
+        headerTitleStyle: { color: '#e2ac56' },
+      }
+    }
   },
   {
-    Liga: {
-      screen: liga,
-      navigationOptions: ({ navigation }) => ({
-        header: null,
-      }),
-    },
+    initialRouteName: 'Login'
   },
-  {
-    initialRouteName: 'MyLiga'
-  }
 )
