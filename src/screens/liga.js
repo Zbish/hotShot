@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Text,View,StyleSheet} from 'react-native'
+import {Text,View,StyleSheet,ScrollView} from 'react-native'
 import Games from '../components/Games'
+import Ranking from '../components/Ranking'
 
 export default class Liga extends Component {
   constructor(props) {
@@ -8,9 +9,10 @@ export default class Liga extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
           <Games></Games>
-      </View>
+          <Ranking></Ranking>
+      </ScrollView>
     );
   }
 }
