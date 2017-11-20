@@ -22,7 +22,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component {
+ class App extends Component {
   state = {
     inputValue: '',
   }
@@ -41,6 +41,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log('index' +this.props.people[0].name)
     return (<RootStackNavigator />
     )
   }
@@ -59,8 +60,8 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(App)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App)
 

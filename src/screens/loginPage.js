@@ -18,7 +18,6 @@ export default class LoginPage extends Component {
   }
 
   render() {
-    console.log(this.Props)
     return (
       <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
          <Image source={require('../images/hotshot.png')} style={styles.logo}>
