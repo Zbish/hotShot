@@ -5,18 +5,21 @@ export default class Game extends Component {
   constructor(props) {
     super(props)
   }
+
   render() {
+      console.log('fff' + this.props.item.icon.home)
     return (
       <View style={styles.container}>
           <View style={styles.header}>
               <View style={styles.teame}>
-              <Image source={require('../images/maccabiHaifa.png')} style={styles.logo}></Image>
-              <Text style={styles.Text}>MACCABI HAIFA</Text>
+                    <Image source={require('../images/maccabiHaifa.png')}
+                     style={styles.logo}></Image>
+                    <Text style={styles.Text}>{this.props.item.home}</Text>
               </View>
-              <Text style={styles.Text}>4 : 1</Text>
+              <Text style={styles.score}>{this.props.item.score.home} : {this.props.item.score.away}</Text>
               <View style={styles.teame}>
-              <Image source={require('../images/macabiTelAviv.jpg')} style={styles.logo}></Image>
-              <Text style={styles.Text}>MACCABI TEL AVIV</Text>
+                    <Image source={require('../images/macabiTelAviv.jpg')} style={styles.logo}></Image>
+                    <Text style={styles.Text}>{this.props.item.away}</Text>
               </View>
           </View>
       </View>
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     header:{
         flexDirection:'row',
         alignSelf: 'stretch',
-        justifyContent: 'space-between',
+       flex:1,
     },
     Text:{
         alignSelf:'center'  
@@ -46,7 +49,12 @@ const styles = StyleSheet.create({
         height:35
     },
     teame:{
-        alignItems:'center'
+        alignItems:'center',
+        flex:3
+    },
+    score:{
+        flex:1,
+        alignSelf:'center' 
     }
 
   });

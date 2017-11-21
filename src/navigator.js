@@ -33,7 +33,6 @@ export default RootStackNavigator = StackNavigator(
     Liga:{
       screen:liga,
       navigationOptions: {
-        title: 'LIGA Name',
         headerStyle: { backgroundColor: 'green' },
         headerTitleStyle: { color: '#e2ac56' },
       }

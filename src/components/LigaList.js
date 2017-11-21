@@ -20,7 +20,7 @@ export default class LigaList extends React.Component {
                     <View style={styles.dataRow}>
                         <View style={styles.textCont}>
                         <Text style={styles.text}>Players : {this.props.ligaProps[0].players.length}</Text>
-                        <Text style={styles.text}>games : {this.props.ligaProps[0].games.length}</Text>
+                        <Text style={styles.text}>games : {this.props.ligaProps[0].games.games.length}</Text>
                         </View>
                         <Text style={styles.text}></Text>
                     </View>

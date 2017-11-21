@@ -12,8 +12,8 @@ export default class Rank extends Component {
           <View style={styles.rankContainer}> 
               <Text> 4 </Text>
                 <Image style={styles.rank} source={require('../images/caspi.jpg')}></Image>
-                <Text>Shlomi</Text> 
-                <Text> 3 points</Text> 
+                <Text>  {this.props.item.name}</Text> 
+                <Text>   {this.props.item.points}</Text> 
             </View>  
           </View>
       </View>

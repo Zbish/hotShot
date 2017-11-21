@@ -10,19 +10,16 @@ export default class Games extends Component {
     return (
       <View style={styles.container}>
            <View style={styles.datacont}>
-          <Text style={styles.ligaData}>Game 20</Text>
-              <Text style={styles.ligaData}>Sunday 20/6/2018</Text>
-              <Text style={styles.ligaData}>the super liga from israel</Text>
+                <Text style={styles.ligaData}>Game {this.props.gamesList.game} , {this.props.gamesList.name}</Text>
+              <Text style={styles.ligaData}>{this.props.gamesList.date}</Text>
+              <Text style={styles.ligaData}></Text>
           </View>
-          <View style={styles.header}>
-              <Text style={styles.Text}>| Home |</Text>
-              <Text style={styles.Text}>| Score |</Text>
-              <Text style={styles.Text}>| Away |</Text>
-          </View>
-          <Game />
-          <Game />
-          <Game />
-          <Game />
+          {
+            this.props.gamesList.games.map((item, index) => {
+            return <Game key={index} item={item}
+            />
+          })
+        }
       </View>
     );
   }
@@ -38,9 +35,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignSelf: 'stretch',
         justifyContent: 'space-between',
-    },
-    Text:{
-        alignSelf:'center'  
     },
     ligaData:{
         alignSelf:'center',

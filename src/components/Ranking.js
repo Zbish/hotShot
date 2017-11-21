@@ -6,7 +6,21 @@ export default class Ranking extends Component {
   constructor(props) {
     super(props)
   }
+  leaderBoard(array){
+    array.sort((a, b) => a.points < b.points)   
+    return (array)
+  }
+  splitArray(array){
+    losers = []  
+    for(i=3 ; i < array.length ; i++)
+        {
+           losers.push(array[i]) 
+        }
+        return(losers)
+  }
   render() {
+     var leader = this.leaderBoard(this.props.RankList)
+     var losers = this.splitArray(leader)
     return (
       <View style={styles.container}>
            <View style={styles.datacont}>
@@ -16,25 +30,28 @@ export default class Ranking extends Component {
             <View style={styles.rankContainer}> 
                 <Image style={styles.rank} source={require('../images/caspi.jpg')}></Image>
                 <Text>2</Text> 
-                <Text>gil caspi</Text> 
-                <Text>50 points</Text> 
+                <Text>{leader[1].name}</Text> 
+                <Text>{leader[1].points}</Text> 
             </View>
             <View style={styles.rankContainer}> 
                 <Image style={styles.ranknum1} source={require('../images/shi.jpg')}></Image>
                 <Text>1</Text>
-                <Text>Azran Shi</Text>
-                <Text>70 points</Text>  
+                <Text>{leader[0].name}</Text>
+                <Text>{leader[0].points}</Text>  
             </View>
             <View style={styles.rankContainer}> 
                 <Image style={styles.rank} source={require('../images/nizan.jpg')}></Image>
                 <Text>3</Text>
-                <Text>Nizan Ginsberg</Text> 
-                <Text>5 points</Text> 
+                <Text>{leader[2].name}</Text> 
+                <Text>{leader[2].points}</Text> 
             </View>
           </View>
-          <Rank />
-          <Rank />
-          <Rank />
+          {
+            losers.map((item, index) => {
+            return <Rank key={index} item={item}
+            />
+          })
+        }
       </View>
     );
   }
