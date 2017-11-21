@@ -9,10 +9,10 @@ export default class LigaList extends React.Component {
         return <View style={styles.container}>
             <TouchableHighlight style={styles.button1} underlayColor='grey' onPress={()=>this.props.goToLiga()}>
                 <View style={styles.cont}>
-                    <Text style={styles.text}>the israeli liga</Text>
-                    <Text style={styles.text} >member in the liga : 10</Text>
-                    <Text style={styles.text} >games 10/25</Text>
-                    <Text style={styles.text} >leading : dor rabba in 5 points</Text>
+                    <Text style={styles.text}>{this.props.ligaProps[0].name}</Text>
+                    <Text style={styles.text}>PLayers : {this.props.ligaProps[1].Players}</Text>
+                    <Text style={styles.text}>Games{this.props.ligaProps[2].Games}</Text>
+                    <Text style={styles.text}>Leading :{this.props.ligaProps[3].Leading}</Text>
                 </View>
             </TouchableHighlight>
         </View>

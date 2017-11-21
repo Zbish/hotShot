@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
 import LigaList from '../components/LigaList'
-export default class MyLiga extends Component {
+import { connect } from 'react-redux';
+import { addPerson, deletePerson } from '../../actions';
+ class MyLiga extends Component {
   constructor(props) {
     super(props)
   }
@@ -12,7 +14,7 @@ export default class MyLiga extends Component {
   render() {
     return (
        <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
-        <LigaList goToLiga={()=>this.navigateTo('Liga')} />
+        <LigaList ligaProps={this.props.liga} goToLiga={()=>this.navigateTo('Liga')} />
         <Button title='Add LIga' onPress={()=>this.navigateTo('AddLiga')}></Button>
      </ImageBackground>
     );
@@ -37,3 +39,20 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
+  function mapStateToProps (state) {
+    return {
+      liga: state.liga.liga
+    }
+  }
+  
+  function mapDispatchToProps (dispatch) {
+    return {
+      dispatchAddPerson: (person) => dispatch(addPerson(person)),
+      dispatchdeletePerson: (person) => dispatch(deletePerson(person))
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(MyLiga)

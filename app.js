@@ -41,7 +41,7 @@ const instructions = Platform.select({
   }
 
   render() {
-    console.log('index' +this.props.people[0].name)
+
     return (<RootStackNavigator />
     )
   }
