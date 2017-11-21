@@ -40,6 +40,6 @@ export default RootStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'MyLiga'
   },
 )
