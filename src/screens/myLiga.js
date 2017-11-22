@@ -7,14 +7,21 @@ import { addPerson, deletePerson } from '../../actions';
   constructor(props) {
     super(props)
   }
-  navigateTo(name,ligaName)
+  navigateTo(name,index,ligaName)
   {
-    this.props.navigation.navigate(name,{name:ligaName});
+    this.props.navigation.navigate(name,{index:index,liganame:ligaName});
   }
   render() {
     return (
        <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
-        <LigaList ligaProps={this.props.liga} goToLiga={()=>this.navigateTo('Liga',this.props.liga[0].name)} />
+        {
+            this.props.liga.map((item, index) => {
+                            return <LigaList ligaProps={this.props.liga[index]}
+                             key={index} item={item}
+                             goToLiga={()=>this.navigateTo('Liga',index,this.props.liga[index].name)}
+            />
+          })
+        }
         <Button title='Add LIga' onPress={()=>this.navigateTo('AddLiga')}></Button>
      </ImageBackground>
     );

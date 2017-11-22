@@ -7,7 +7,7 @@ export default class Game extends Component {
   }
 
   render() {
-      console.log('fff' + this.props.item.icon.home)
+      console.log('image' + this.props.item.icon.home)
     return (
       <View style={styles.container}>
           <View style={styles.header}>

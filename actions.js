@@ -1,4 +1,4 @@
-import { ADD_PERSON, DELETE_PERSON } from './constants';
+import { ADD_PERSON, DELETE_PERSON,ADD_LIGA } from './constants';
 
 export function addPerson(person) {
   return {
@@ -11,5 +11,12 @@ export function deletePerson(person) {
   return {
     type: 'DELETE_PERSON',
     person,
+  };
+}
+
+export function addNewLiga(name) {
+  return {
+    type: 'ADD_LIGA',
+    name,
   };
 }

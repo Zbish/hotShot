@@ -12,17 +12,16 @@ export default class LigaList extends React.Component {
         return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>this.props.goToLiga()}>
                 <View style={styles.wrapper}>
                     <View style={styles.container}>
-                        <Text style={styles.title}>{this.props.ligaProps[0].name}</Text>
+                        <Text style={styles.title}>{this.props.ligaProps.name}</Text>
                         <ImageBackground  style={styles.footBallPic} source={require('../images/football.png')}>
                                     <Text style={styles.textRank}> 1 </Text>
                         </ImageBackground >
                     </View>
                     <View style={styles.dataRow}>
-                        <View style={styles.textCont}>
-                        <Text style={styles.text}>Players : {this.props.ligaProps[0].players.length}</Text>
-                        <Text style={styles.text}>games : {this.props.ligaProps[0].games.games.length}</Text>
-                        </View>
-                        <Text style={styles.text}></Text>
+                            <View style={styles.textCont}>
+                                <Text style={styles.text}>players: {this.props.ligaProps.players.length}</Text>
+                                <Text style={styles.text}>games: {this.props.ligaProps.games.games.length}</Text>
+                            </View>
                     </View>
                 </View>  
                 </TouchableHighlight>
@@ -37,7 +36,7 @@ const styles = {
         borderWidth:1, 
         borderColor: 'black',
         backgroundColor: 'rgb(242, 242, 242)',
-        margin:10,
+        margin:5,
         flexDirection:'row',
         alignSelf:'stretch',
     },
@@ -45,19 +44,15 @@ const styles = {
         flexDirection:'row',
     },
     container: {
-   
-        margin:10,
-        
+        margin:5,
     },
     text: {
         color: '#696969',
-        padding:5,
         margin:5,
         fontSize: 15,
     },
     leaderText:{
         color: '#696969',
-        padding:5,
         margin:5,
         fontSize: 15,
 
@@ -69,8 +64,8 @@ const styles = {
     }
     ,
     footBallPic:{
-        width:60,
-        height:60,
+        width:50,
+        height:50,
     },
     textRank:{
         color:'orange',
