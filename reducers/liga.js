@@ -27,7 +27,6 @@ const initialState = { liga: [{name:'Mondial',
                                                   icon:{home:'../images/maccabiHaifa.png',away:'../images/macabiTelAviv.jpg'}}]},
                             }] }
 export default function ligaReducer(state = initialState, action) {
-  console.log('action' + JSON.stringify(action))
   switch (action.type) {
       case ADD_LIGA:
       return{

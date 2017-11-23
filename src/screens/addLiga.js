@@ -17,23 +17,7 @@ import AddGames from '../components/AddGames'
   componentWillMount() {
     this.setState({
       ligaName: "",
-         freinds:[
-            {name:'gil',points:70,code:1},
-            {name:'dor',points:50,code:2},
-            {name:'omri',points:60,code:3},
-            {name:'azran',points:30,code:4},
-            {name:'nizan',points:5,code:5}],
          players:[],
-         AllGames:[{home:'argentina',away:'brazil',code:1,
-                score:{home:7,away:2},
-                icon:{home:'../flags/argentina.jpg',away:'../flags/brazil.jpg'}},
-                {home:'belgium',away:'colombia',code:2,
-                score:{home:1,away:3},
-                icon:{home:'../flags/Belgium.jpg',away:'../flags/colombia.jpg'}},
-                {home:'france',away:'sweden',code:3,
-                score:{home:3,away:1},
-                icon:{home:'../flags/france.jpg',away:'../flags/sweden.jpg'}}
-              ],
          myGames:[]
     });
   }
@@ -69,7 +53,7 @@ import AddGames from '../components/AddGames'
                    onChangeText={(val) => this.onChange(val)}
                    value={this.state.ligaName}
         />
-          <AddFreind freinds={this.state.freinds} addPlayer={(name)=>this.addPlayer(name)} />
+          <AddFreind freinds={this.props.freinds.freinds} addPlayer={(name)=>this.addPlayer(name)} />
             <View style={styles.freindsInLiga}>
               <Text style={styles.text}>Players :</Text>
                     {
@@ -78,7 +62,7 @@ import AddGames from '../components/AddGames'
                   })
                 }
             </View>
-          <AddGames allgames={this.state.AllGames} addgame={(game) => this.addGame(game)} />
+          <AddGames allgames={this.props.AllGames.allGames} addgame={(game) => this.addGame(game)} />
           <View style={styles.gamesInLiga}>
               <Text style={styles.text}>Games :</Text>
                     {
@@ -126,7 +110,9 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      liga: state.liga.liga
+      liga: state.liga.liga,
+      AllGames:state.allGames,
+      freinds:state.freinds
     }
   }
   
