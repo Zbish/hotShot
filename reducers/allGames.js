@@ -2,15 +2,18 @@
 import { ADD_PERSON, DELETE_PERSON } from '../constants';
 
 const initialState = { allGames: [
-                                  {home:'argentina',away:'brazil',code:1,
-                                    score:{home:7,away:2},
-                                       icon:{home:'../flags/argentina.jpg',away:'../flags/brazil.jpg'}},
-                                  {home:'belgium',away:'colombia',code:2,
-                                    score:{home:1,away:3},
-                                       icon:{home:'../flags/Belgium.jpg',away:'../flags/colombia.jpg'}},
-                                  {home:'france',away:'sweden',code:3,
-                                    score:{home:3,away:1},
-                                        icon:{home:'../flags/france.jpg',away:'../flags/sweden.jpg'}}
+                                  {home:'A1',away:'A2',code:1,
+                                    score:{home:0,away:0},
+                                       },
+                                  {home:'A3',away:'A4',code:2,
+                                    score:{home:0,away:0},
+                                      },
+                                      {home:'B1',away:'B2',code:3,
+                                      score:{home:0,away:0},
+                                         },
+                                    {home:'B3',away:'B4',code:4,
+                                      score:{home:0,away:0},
+                                        },
                                   ] }
 
 export default function allGamesReducer(state = initialState, action) {

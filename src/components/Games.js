@@ -16,7 +16,9 @@ export default class Games extends Component {
           </View>
           {
             this.props.gamesList.games.map((item, index) => {
-            return <Game key={index} item={item}
+            return <Game key={index} 
+                         item={item}
+                         teams={this.props.teams}
             />
           })
         }

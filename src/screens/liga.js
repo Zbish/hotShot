@@ -14,10 +14,11 @@ class Liga extends Component {
   });
   render() {
     const liga = this.props.liga
+    const teams = this.props.team
     const index = this.props.navigation.state.params.index
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={liga[index].games}></Games>
+          <Games gamesList={liga[index].games} teams={teams}></Games>
           <Ranking RankList={liga[index].players} ></Ranking>
       </ScrollView>
     );
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      liga: state.liga.liga
+      liga: state.liga.liga,
+      team:state.team
     }
   }
   
