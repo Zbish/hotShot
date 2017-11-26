@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
 import LigaList from '../components/LigaList'
-import { connect } from 'react-redux';
-import { addPerson, deletePerson } from '../../actions';
+import { connect } from 'react-redux'
+import { addPerson, deletePerson } from '../../actions'
+import fieldImage from '../images/app/field.jpg'
  class MyLiga extends Component {
   constructor(props) {
     super(props)
@@ -12,13 +13,15 @@ import { addPerson, deletePerson } from '../../actions';
     this.props.navigation.navigate(name,{index:index,liganame:ligaName});
   }
   render() {
+      const {liga} = this.props
     return (
-       <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
+       <ImageBackground source={fieldImage} style={styles.container}>
         {
-            this.props.liga.map((item, index) => {
-                            return <LigaList ligaProps={this.props.liga[index]}
-                             key={index} item={item}
-                             goToLiga={()=>this.navigateTo('Liga',index,this.props.liga[index].name)}
+            liga.map((item, index) => {
+                            return <LigaList 
+                                        key={index} item={item}
+                                        listligaProps={liga[index]}      
+                                        navigateToLiga={()=>this.navigateTo('Liga',index,liga[index].name)}
             />
           })
         }

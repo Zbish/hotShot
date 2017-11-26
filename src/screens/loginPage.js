@@ -19,8 +19,8 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
-         <Image source={require('../images/hotshot.png')} style={styles.logo}>
+      <ImageBackground source={require('../images/app/field.jpg')} style={styles.container}>
+         <Image source={require('../images/app/hotshot.png')} style={styles.logo}>
               </Image>
         <LoginForm />
            <Button title='go to my liga' onPress={() => this.navigateTo("MyLiga")}>

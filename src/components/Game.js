@@ -12,13 +12,13 @@ export default class Game extends Component {
       <View style={styles.container}>
           <View style={styles.header}>
               <View style={styles.teame}>
-                    <Image source={require('../images/maccabiHaifa.png')}
+                    <Image source={require('../images/app/maccabiHaifa.png')}
                      style={styles.logo}></Image>
                     <Text style={styles.Text}>{this.props.item.home}</Text>
               </View>
               <Text style={styles.score}>{this.props.item.score.home} : {this.props.item.score.away}</Text>
               <View style={styles.teame}>
-                    <Image source={require('../images/macabiTelAviv.jpg')} style={styles.logo}></Image>
+                    <Image source={require('../images/app/macabiTelAviv.jpg')} style={styles.logo}></Image>
                     <Text style={styles.Text}>{this.props.item.away}</Text>
               </View>
           </View>

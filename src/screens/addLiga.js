@@ -45,7 +45,7 @@ import AddGames from '../components/AddGames'
   }
   render() {
     return (
-      <ImageBackground source={require('../images/field.jpg')} style={styles.container}>
+      <ImageBackground source={require('../images/app/field.jpg')} style={styles.container}>
         <TextInput underLineColorAndroid='transparent'
                    placeholderTextColor="black"
                    placeholder='liga name' 

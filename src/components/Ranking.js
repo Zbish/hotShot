@@ -1,61 +1,68 @@
 import React, { Component } from 'react';
 import {Text,View,StyleSheet,Image} from 'react-native'
 import Rank from '../components/Rank'
+import RankLeader from '../components/RankLeader'
 
-export default class Ranking extends Component {
-  constructor(props) {
-    super(props)
-  }
-  leaderBoard(array){
-    array.sort((a, b) => a.points < b.points)   
-    return (array)
-  }
-  splitArray(array){
-    losers = []  
-    for(i=3 ; i < array.length ; i++)
+function sort(array)
+{
+  array.sort((a, b) => a.points < b.points) 
+  return (array)
+}
+function leaders(array){
+  leadersPlayers =[]   
+  for(i=0 ; i < 3 ; i++)
+    {
+      if(array[i] == null)
         {
-           losers.push(array[i]) 
+          return (leadersPlayers)
         }
-        return(losers)
-  }
-  render() {
-     var leader = this.leaderBoard(this.props.RankList)
-     var losers = this.splitArray(leader)
+        else{
+          leadersPlayers.push(array[i]) 
+        }
+    }
+  return (leadersPlayers)
+}
+
+function loserss(array){
+  losers = []  
+  for(i=3 ; i < array.length ; i++)
+      {
+         losers.push(array[i]) 
+      }
+      return(losers)
+}
+
+const Ranking =(props) => {
+
+     var players = sort(props.RankList)
+     var leader = leaders(players)
+     var losers = loserss(players)
     return (
       <View style={styles.container}>
-           <View style={styles.datacont}>
-          <Text style={styles.ligaData}>LeaderBoard</Text>
-          </View>
-          <View style={styles.header}>
-            <View style={styles.rankContainer}> 
-                <Image style={styles.rank} source={require('../images/caspi.jpg')}></Image>
-                <Text>2</Text> 
-                <Text>{leader[1].name}</Text> 
-                <Text>{leader[1].points}</Text> 
-            </View>
-            <View style={styles.rankContainer}> 
-                <Image style={styles.ranknum1} source={require('../images/shi.jpg')}></Image>
-                <Text>1</Text>
-                <Text>{leader[0].name}</Text>
-                <Text>{leader[0].points}</Text>  
-            </View>
-            <View style={styles.rankContainer}> 
-                <Image style={styles.rank} source={require('../images/nizan.jpg')}></Image>
-                <Text>3</Text>
-                <Text>{leader[2].name}</Text> 
-                <Text>{leader[2].points}</Text> 
-            </View>
-          </View>
+          <Text style={styles.text}>LeaderBoard</Text>
+          <View style={styles.content}>
           {
-            losers.map((item, index) => {
-            return <Rank key={index} item={item}
+            leader.map((item, index) => {
+            return <RankLeader key={index} 
+                               item={item}
+                               place={index+1}
             />
           })
         }
+          </View>
+          <View>
+          {
+            losers.map((item, index) => {
+            return <Rank key={index} 
+                        item={item}
+                        place={index + 4}
+            />
+          })
+        }
+          </View>
       </View>
     );
   }
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -63,38 +70,17 @@ const styles = StyleSheet.create({
       margin:5,
       padding:5
     },
-    header:{
+    text:{
+      alignSelf:'center',
+      color:'black',
+      fontSize:20
+      
+  },
+    content:{
         flexDirection:'row',
         alignSelf: 'stretch',
         justifyContent: 'space-between',
     },
-    Text:{
-        alignSelf:'center'  
-    },
-    ligaData:{
-        alignSelf:'center',
-        color:'black',
-        fontSize:20
-        
-    },
-    datacont:{
-
-    },
-    rankContainer:{
-        alignItems:'center'
-    },
-    rank:{
-        width:100,
-        height:100,
-        borderWidth:1, 
-        borderColor: 'black',
-        borderRadius:50,
-    },
-    ranknum1:{
-        width:120,
-        height:120,
-        borderWidth:1, 
-        borderColor: 'black',
-        borderRadius:60,
-    }
+  
   });
+  export default Ranking;

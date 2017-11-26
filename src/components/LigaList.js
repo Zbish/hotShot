@@ -1,35 +1,31 @@
-import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableHighlight,ImageBackground } from 'react-native';
-export default class LigaList extends React.Component {
+import React, { Component } from 'react'
+import { View,
+         Text,
+         TextInput,
+         StyleSheet,
+         TouchableHighlight,
+         ImageBackground } from 'react-native'
+import Ball from '../images/app/football.png'
+ const LigaList = ({listligaProps,navigateToLiga }) => {
+    const {players,games,name} = listligaProps
 
-    constructor(props) {
-        super(props);
-    }
-    numOfPlayers(arrayOfPlayers){
-        
-    }
-    render() {
-        return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>this.props.goToLiga()}>
+        return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>navigateToLiga()}>
                 <View style={styles.wrapper}>
                     <View style={styles.container}>
-                        <Text style={styles.title}>{this.props.ligaProps.name}</Text>
-                        <ImageBackground  style={styles.footBallPic} source={require('../images/football.png')}>
+                        <Text style={styles.title}>{name}</Text>
+                        <ImageBackground  style={styles.footBallPic} source={Ball}>
                                     <Text style={styles.textRank}> 1 </Text>
                         </ImageBackground >
                     </View>
                     <View style={styles.dataRow}>
-                            <View style={styles.textCont}>
-                                <Text style={styles.text}>players: {this.props.ligaProps.players.length}</Text>
-                                <Text style={styles.text}>games: {this.props.ligaProps.games.games.length}</Text>
+                            <View style={styles.textContainer}>
+                                <Text style={styles.text}>players: {players.length}</Text>
+                                <Text style={styles.text}>games: {games.games.length}</Text>
                             </View>
                     </View>
                 </View>  
                 </TouchableHighlight>
-       
-    }
 }
-
-
 const styles = {
     highLight:{
         borderRadius:10,
@@ -81,8 +77,9 @@ const styles = {
         justifyContent:'center',
         alignItems: 'center',
     },
-    textCont:{
+    textContainer:{
         flexDirection:'row'
     }
 
 }
+export default LigaList;

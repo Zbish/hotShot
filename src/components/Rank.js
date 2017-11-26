@@ -6,14 +6,16 @@ export default class Rank extends Component {
     super(props)
   }
   render() {
+      const item = this.props.item
+      const place = this.props.place
     return (
       <View style={styles.container}>
           <View style={styles.header}>
           <View style={styles.rankContainer}> 
-              <Text> 4 </Text>
-                <Image style={styles.rank} source={require('../images/caspi.jpg')}></Image>
-                <Text>  {this.props.item.name}</Text> 
-                <Text>   {this.props.item.points}</Text> 
+              <Text>{place}</Text>
+                <Image style={styles.rank} source={require('../images/users/caspi.jpg')}></Image>
+                <Text>{item.name}</Text> 
+                <Text>{item.points}</Text> 
             </View>  
           </View>
       </View>
