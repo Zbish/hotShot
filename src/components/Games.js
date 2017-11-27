@@ -6,6 +6,10 @@ export default class Games extends Component {
   constructor(props) {
     super(props)
   }
+  gameNum(num)
+  {
+    this.props.getMatchNum(num)
+  }
   render() {
     var tempDate = new Date(this.props.gamesList[0].Date);
     return (
@@ -18,6 +22,8 @@ export default class Games extends Component {
             return <Game key={index} 
                          item={item}
                          teams={this.props.teams}
+                         gamenum={(num)=>this.gameNum(num)}
+
             />
           })
         }

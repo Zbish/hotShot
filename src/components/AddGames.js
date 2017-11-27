@@ -24,6 +24,9 @@ export default class AddGames extends Component {
   addGame(game){
       this.props.addgame(game)
   }
+  getGameNum(num,array){
+    this.addGames(num,array)
+  }
   render() {
     return (
           <ScrollView style={styles.scroll}>
@@ -39,7 +42,7 @@ export default class AddGames extends Component {
                                         ></Button>
           })
         } */}
-        <Games  gamesList={this.props.allgames[0]} teams={this.props.teams} />
+        <Games  gamesList={this.props.allgames[0]} teams={this.props.teams} getMatchNum={(match)=>this.getGameNum(match,this.props.allgames[0])}/>
           
           </ScrollView>
     );

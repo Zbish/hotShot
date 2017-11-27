@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text,View,Image,StyleSheet} from 'react-native'
+import {Text,View,Image,StyleSheet,TouchableHighlight} from 'react-native'
 import Flags from '../images/Flags'
 
 export default class Game extends Component {
@@ -15,6 +15,9 @@ export default class Game extends Component {
               }   
       }
     }
+    getMatchNum(num){
+     this.props.gamenum(num)
+    }
   render() {
     var team1 =   this.props.item.team1
     var team2 =   this.props.item.team2
@@ -23,9 +26,9 @@ export default class Game extends Component {
       var team4 = this.getTeam(team2,this.props.teams.team)
       var tempDate = new Date(item.Date);
     return (
-      <View style={styles.container}>
-        
-              <View style={styles.team}>
+      <TouchableHighlight style={styles.wrapper} underlayColor='grey' onPress={()=>this.getMatchNum(item.match)} >
+        <View style={styles.container}>
+        <View style={styles.team}>
                    <Image source={Flags[team3]} style={styles.logo}></Image>
                     <Text style={styles.teamName}>{team3}</Text>
               </View>
@@ -39,14 +42,17 @@ export default class Game extends Component {
                     <Image source={Flags[team4]} style={styles.logo}></Image>
                     <Text style={styles.teamName}>{team4}</Text>
               </View>
-        
-      </View>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    wrapper: {
+     
+    },
+    container:{
       backgroundColor: '#EAEDED',
       flexDirection:'row',
       padding:10
