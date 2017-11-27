@@ -16,26 +16,30 @@ export default class Game extends Component {
       }
 }
   render() {
-    var team1 =   this.props.item.home
-    var team2 =   this.props.item.away
+    var team1 =   this.props.item.team1
+    var team2 =   this.props.item.team2
     var item = this.props.item
       var team3 = this.getTeam(team1,this.props.teams.team)
       var team4 = this.getTeam(team2,this.props.teams.team)
- 
+      var tempDate = new Date(item.Date);
     return (
       <View style={styles.container}>
-          <View style={styles.header}>
-              <View style={styles.teame}>
-                    <Image source={Flags[team3]} style={{width: 32, height: 32}}
-                     style={styles.logo}></Image>
-                    <Text style={styles.Text}>{team3}</Text>
+        
+              <View style={styles.team}>
+                   <Image source={Flags[team3]} style={styles.logo}></Image>
+                    <Text style={styles.teamName}>{team3}</Text>
               </View>
-              <Text style={styles.score}>{item.score.home} : {item.score.away}</Text>
-              <View style={styles.teame}>
+              <View style={styles.scoreContainer}>
+                  <Text style={styles.Text}>Match {item.match}</Text>
+                  <Text style={styles.score}>{item.score.team1} : {item.score.team2}</Text>
+                  <Text style={styles.score}>{tempDate.getHours()}:{tempDate.getMinutes()}0</Text>
+                  <Text style={styles.Text} >Group {item.group}</Text>
+              </View>
+              <View style={styles.team}>
                     <Image source={Flags[team4]} style={styles.logo}></Image>
-                    <Text style={styles.Text}>{team4}</Text>
+                    <Text style={styles.teamName}>{team4}</Text>
               </View>
-          </View>
+        
       </View>
     );
   }
@@ -43,32 +47,32 @@ export default class Game extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'white',
-      margin:1,
-      borderWidth:1, 
-      borderColor: 'black',
-      borderRadius:5,
-      padding:5
+      backgroundColor: '#EAEDED',
+      flexDirection:'row',
+      padding:10
     },
-    header:{
-        flexDirection:'row',
-        alignSelf: 'stretch',
-       flex:1,
-    },
-    Text:{
+    team:{
+      alignItems:'center',
+      flexDirection:'column',
+      flex:3
+  },
+  teamName:{
         alignSelf:'center'  
     },
     logo:{
-        width:35,
-        height:35
+        width:30,
+        height:18
     },
-    teame:{
-        alignItems:'center',
-        flex:3
-    },
+   scoreContainer:{
+    alignItems:'center',
+    flex:3
+   },
     score:{
         flex:1,
-        alignSelf:'center' 
+        alignSelf:'center',
+        color:'black' 
+    },
+    Text:{
+      fontSize:12
     }
-
   });

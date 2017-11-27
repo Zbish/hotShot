@@ -67,7 +67,7 @@ import AddGames from '../components/AddGames'
               <Text style={styles.text}>Games :</Text>
                     {
                     this.state.myGames.map((item, index) => {
-                                    return <Text style={styles.text} key={index} item={item}>{item.home}-{item.away},</Text>
+                                    return <Text style={styles.text} key={index} item={item}>{item.team1}-{item.team2},</Text>
                   })
                 }
             </View>

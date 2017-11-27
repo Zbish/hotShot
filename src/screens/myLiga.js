@@ -14,6 +14,7 @@ import fieldImage from '../images/app/field.jpg'
   }
   render() {
       const {liga} = this.props
+ 
     return (
        <ImageBackground source={fieldImage} style={styles.container}>
         {

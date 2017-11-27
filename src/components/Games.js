@@ -7,12 +7,11 @@ export default class Games extends Component {
     super(props)
   }
   render() {
+    var tempDate = new Date(this.props.gamesList.games[0].Date);
     return (
       <View style={styles.container}>
-           <View style={styles.datacont}>
-                <Text style={styles.ligaData}>Game {this.props.gamesList.game} , {this.props.gamesList.name}</Text>
-              <Text style={styles.ligaData}>{this.props.gamesList.date}</Text>
-              <Text style={styles.ligaData}></Text>
+           <View style={styles.dateContainer}>
+              <Text style={styles.ligaData}>{tempDate.toLocaleDateString()}</Text>
           </View>
           {
             this.props.gamesList.games.map((item, index) => {
@@ -31,8 +30,14 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: 'gray',
       margin:5,
-      padding:5
+      padding:5,
+      borderColor: '#fff',
+      borderRadius: 10,
+      borderWidth: 0.6,
     },
+    dateContainer:{
+     
+          },
     header:{
         flexDirection:'row',
         alignSelf: 'stretch',
@@ -43,7 +48,5 @@ const styles = StyleSheet.create({
         color:'black',
         
     },
-    datacont:{
-
-    }
+    
   });

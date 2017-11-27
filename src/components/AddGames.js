@@ -4,16 +4,17 @@ import {Text,
   StyleSheet,
   Button,
   ImageBackground,
+  ScrollView,
   TextInput} from 'react-native'
 
 export default class AddGames extends Component {
   constructor(props) {
     super(props)
   }
-  addGames(code,array){
+  addGames(match,array){
     for(i=0 ; i < array.length ; i++)
       {
-        if(array[i].code == code){
+        if(array[i].match == match){
           this.addGame(array[i])
           return 
         }
@@ -25,19 +26,29 @@ export default class AddGames extends Component {
   }
   render() {
     return (
-          <View style={styles.container}>
-               <Text style={styles.text}>ADD Games</Text>
-              <Button style={styles.game} onPress={()=>this.addGames(1,this.props.allgames)} title={'argentina - brazil'}></Button>
-              <Button style={styles.game} onPress={()=>this.addGames(2,this.props.allgames)} title={'belgium - colombia'}></Button>
-              <Button style={styles.game} onPress={()=>this.addGames(3,this.props.allgames)} title={'france - sweden'}></Button>
-          </View>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.container}>
+            <Text style={styles.text}>ADD Games</Text>
+              {
+                this.props.allgames[0].map((item, index) => {
+                            return <Button 
+                                        style={styles.text}
+                                        key={index} item={item}
+                                        onPress={()=>this.addGames(item.match,this.props.allgames[0])} 
+                                        title={item.match.toString()}
+                                        ></Button>
+          })
+        }
+            </View>
+          </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+
     container: {
-        flexDirection:'column',
+        flexDirection:'row',
       justifyContent: 'center',
       alignItems: 'center',
       margin:5
@@ -45,7 +56,7 @@ const styles = StyleSheet.create({
     text:{
       alignSelf:'flex-start',
       color:'black',
-      fontSize:15
+      fontSize:16
     },
     game:{
         margin:5

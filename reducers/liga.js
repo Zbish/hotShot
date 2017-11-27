@@ -9,22 +9,21 @@ const initialState = { liga: [{name:'Mondial',
                                         {name:'azran',points:30,code:4},
                                         {name:'nizan',points:5,code:5}
                                       ],
-                               games:{name:'house 5',
-                                      date:'sunday 25/7/18',
-                                      game:"20",
+                               games:{
                                       games:[
-                                              {home:'A1',
-                                              away:'A2',
-                                              score:{home: 5,away: 0},
-                                              },
-                                                {home:'A3',
-                                                away:'A4',
-                                                score:{home: 15,away: 3},
+                                         {team2:'A2',team1:'A1',match:1,group:'A',
+                                         Date:'June 14 2018 18:00',stadium:'LuzhnikiStadium(Moscow)',score:{team2:0,team1:0}
+                                            },
+                                            {team2:'A4',team1:'A3',match:2,group:'A',
+                                            Date:'June 15 2018 15:55',stadium:'Ekaterinburg Arena',score:{team2:0,team1:0}
                                                },
-                                                  {home:'B1',
-                                                  away:'B4',
-                                                  score:{home:7,away:2},
-                                                  }]},
+                                       
+                                               {team2:'B2',team1:'B1',match:3,group:'B',
+                                               Date:'June 16 2018 21:00',stadium:'Saint Petersburg Stadium',score:{team2:0,team1:0}
+                                                  },
+                                                  {team2:'B4',team1:'B3',match:4,group:'B',
+                                                  Date:'June 15 2018 18:00',stadium:'Fisht Stadium (Sochi)',score:{team2:0,team1:0}
+                                                     },]},
                             }] }
 export default function ligaReducer(state = initialState, action) {
   switch (action.type) {
