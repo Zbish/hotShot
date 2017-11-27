@@ -20,7 +20,7 @@ import Ball from '../images/app/football.png'
                     <View style={styles.dataRow}>
                             <View style={styles.textContainer}>
                                 <Text style={styles.text}>players: {players.length}</Text>
-                                <Text style={styles.text}>games: {games.games.length}</Text>
+                                <Text style={styles.text}>games: {games.length}</Text>
                             </View>
                     </View>
                 </View>  

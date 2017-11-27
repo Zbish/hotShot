@@ -6,7 +6,7 @@ import {Text,
   ImageBackground,
   ScrollView,
   TextInput} from 'react-native'
-
+import Games from './Games'
 export default class AddGames extends Component {
   constructor(props) {
     super(props)
@@ -27,8 +27,8 @@ export default class AddGames extends Component {
   render() {
     return (
           <ScrollView style={styles.scroll}>
-            <View style={styles.container}>
-            <Text style={styles.text}>ADD Games</Text>
+            
+            {/* <Text style={styles.text}>ADD Games</Text>
               {
                 this.props.allgames[0].map((item, index) => {
                             return <Button 
@@ -38,8 +38,9 @@ export default class AddGames extends Component {
                                         title={item.match.toString()}
                                         ></Button>
           })
-        }
-            </View>
+        } */}
+        <Games  gamesList={this.props.allgames[0]} teams={this.props.teams} />
+          
           </ScrollView>
     );
   }
@@ -47,10 +48,10 @@ export default class AddGames extends Component {
 
 const styles = StyleSheet.create({
 
-    container: {
-        flexDirection:'row',
-      justifyContent: 'center',
-      alignItems: 'center',
+  scroll:{
+ 
+  },  
+  container: {
       margin:5
     },
     text:{
@@ -58,7 +59,5 @@ const styles = StyleSheet.create({
       color:'black',
       fontSize:16
     },
-    game:{
-        margin:5
-    }
+   
   });

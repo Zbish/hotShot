@@ -7,14 +7,14 @@ export default class Games extends Component {
     super(props)
   }
   render() {
-    var tempDate = new Date(this.props.gamesList.games[0].Date);
+    var tempDate = new Date(this.props.gamesList[0].Date);
     return (
       <View style={styles.container}>
            <View style={styles.dateContainer}>
               <Text style={styles.ligaData}>{tempDate.toLocaleDateString()}</Text>
           </View>
           {
-            this.props.gamesList.games.map((item, index) => {
+            this.props.gamesList.map((item, index) => {
             return <Game key={index} 
                          item={item}
                          teams={this.props.teams}

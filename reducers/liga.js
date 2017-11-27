@@ -9,13 +9,13 @@ const initialState = { liga: [{name:'Mondial',
                                         {name:'azran',points:30,code:4},
                                         {name:'nizan',points:5,code:5}
                                       ],
-                               games:{
+                               
                                       games:[
                                          {team2:'A2',team1:'A1',match:1,group:'A',
                                          Date:'June 14 2018 18:00',stadium:'LuzhnikiStadium(Moscow)',score:{team2:0,team1:0}
                                             },
                                             {team2:'A4',team1:'A3',match:2,group:'A',
-                                            Date:'June 15 2018 15:55',stadium:'Ekaterinburg Arena',score:{team2:0,team1:0}
+                                            Date:'June 15 2018 15:50',stadium:'Ekaterinburg Arena',score:{team2:0,team1:0}
                                                },
                                        
                                                {team2:'B2',team1:'B1',match:3,group:'B',
@@ -24,7 +24,7 @@ const initialState = { liga: [{name:'Mondial',
                                                   {team2:'B4',team1:'B3',match:4,group:'B',
                                                   Date:'June 15 2018 18:00',stadium:'Fisht Stadium (Sochi)',score:{team2:0,team1:0}
                                                      },]},
-                            }] }
+                            ] }
 export default function ligaReducer(state = initialState, action) {
   switch (action.type) {
       case ADD_LIGA:

@@ -25,7 +25,7 @@ import AddGames from '../components/AddGames'
   {
     const newLiga = {name:this.state.ligaName,
                      players:this.state.players,
-                     games:{name:'house 7',date:'sunday 25/7/18',game:"20",games:this.state.myGames}
+                     games:this.state.myGames
                     }
     this.props.addNewLiga(newLiga)
     this.props.navigation.navigate("MyLiga");
@@ -44,16 +44,21 @@ import AddGames from '../components/AddGames'
     this.setState({ ligaName: val })
   }
   render() {
+    
     return (
-      <ImageBackground source={require('../images/app/field.jpg')} style={styles.container}>
-        <TextInput underLineColorAndroid='transparent'
+      <ImageBackground source={require('../images/app/field.jpg')} style={styles.wrapper}>
+        <View style={styles.container}>
+          <View style={styles.sub1}>
+          <TextInput underLineColorAndroid='transparent'
                    placeholderTextColor="black"
                    placeholder='liga name' 
                    style={styles.textInput}
                    onChangeText={(val) => this.onChange(val)}
                    value={this.state.ligaName}
         />
-          <AddFreind freinds={this.props.freinds.freinds} addPlayer={(name)=>this.addPlayer(name)} />
+          </View>
+       <View style={styles.sub2}>
+       <AddFreind freinds={this.props.freinds.freinds} addPlayer={(name)=>this.addPlayer(name)} />
             <View style={styles.freindsInLiga}>
               <Text style={styles.text}>Players :</Text>
                     {
@@ -62,27 +67,32 @@ import AddGames from '../components/AddGames'
                   })
                 }
             </View>
-          <AddGames allgames={this.props.AllGames.allGames} addgame={(game) => this.addGame(game)} />
-          <View style={styles.gamesInLiga}>
+       </View>
+         <View style={styles.sub3}>
+         <AddGames style={styles.games} allgames={this.props.AllGames.allGames} teams={this.props.team} addgame={(game) => this.addGame(game)} />
+          {/* <View style={styles.gamesInLiga}>
               <Text style={styles.text}>Games :</Text>
                     {
                     this.state.myGames.map((item, index) => {
                                     return <Text style={styles.text} key={index} item={item}>{item.team1}-{item.team2},</Text>
                   })
                 }
-            </View>
-        <Button title={'add liga'} onPress={()=>this.addLiga()} ></Button>
+            </View> */}
+         </View>
+         
+            <Button title={'add liga'} onPress={()=>this.addLiga()} ></Button>
+        </View>
+      
       </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    wrapper: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#F5FCFF',
     },
     textInput: {
       color: '#000000',
@@ -95,6 +105,18 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       borderWidth: 0.6,
     },
+    container:{
+      flex:1
+    },
+    sub1:{
+      flex:1
+    },
+    sub2:{
+      flex:1
+    },
+    sub3:{
+      flex:3
+    },
     freindsInLiga:{
       flexDirection:'row',
       
@@ -105,6 +127,9 @@ const styles = StyleSheet.create({
     text:{
       color:'black',
       fontSize:20
+    },
+    games:{
+      flex:3
     }
   });
 
@@ -112,7 +137,8 @@ const styles = StyleSheet.create({
     return {
       liga: state.liga.liga,
       AllGames:state.allGames,
-      freinds:state.freinds
+      freinds:state.freinds,
+      team:state.team
     }
   }
   
