@@ -69,15 +69,10 @@ import AddGames from '../components/AddGames'
             </View>
        </View>
          <View style={styles.sub3}>
+         <View style={styles.gamesInLiga}>
+              <Text style={styles.text}>Games : {this.state.myGames.length}</Text>
+            </View>
          <AddGames style={styles.games} allgames={this.props.AllGames.allGames} teams={this.props.team} addgame={(game) => this.addGame(game)} />
-          {/* <View style={styles.gamesInLiga}>
-              <Text style={styles.text}>Games :</Text>
-                    {
-                    this.state.myGames.map((item, index) => {
-                                    return <Text style={styles.text} key={index} item={item}>{item.team1}-{item.team2},</Text>
-                  })
-                }
-            </View> */}
          </View>
          
             <Button title={'add liga'} onPress={()=>this.addLiga()} ></Button>
