@@ -30,10 +30,11 @@ class Liga extends Component {
     const liga = this.props.liga
     const teams = this.props.team
     const index = this.props.navigation.state.params.index
+    
     return (
       <ScrollView style={styles.container}>
           <Games gamesList={liga[index].games} teams={teams} getMatchNum={(match)=>this.getGameNum(match)}></Games>
-          <Ranking RankList={liga[index].players} ></Ranking>
+          <Ranking RankList={liga[index]} ></Ranking>
       </ScrollView>
     );
   }

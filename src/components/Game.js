@@ -34,8 +34,8 @@ export default class Game extends Component {
               </View>
               <View style={styles.scoreContainer}>
                   <Text style={styles.Text}>Match {item.match}</Text>
-                  {/* <Text style={styles.score}>{item.score.team1} : {item.score.team2}</Text> */}
-                  <Text style={styles.score}>{tempDate.getHours()}:{tempDate.getMinutes()}0</Text>
+                  <Text style={styles.score}>{item.score.team1} : {item.score.team2}</Text>
+                  {/* <Text style={styles.score}>{tempDate.getHours()}:{tempDate.getMinutes()}0</Text> */}
                   <Text style={styles.Text} >Group {item.group}</Text>
               </View>
               <View style={styles.team}>
