@@ -1,16 +1,14 @@
 // reducers/index.js
 
 import { combineReducers } from 'redux'
-import liga from './liga'
-import allGames from './allGames'
+import leagues from './leagues'
+import games from './games'
 import friends from './friends'
 import team from './team'
-import game from './game'
 
 export default {
-  liga,
-  allGames,
+  leagues,
+  games,
   friends,
   team,
-  game
 }

@@ -23,7 +23,7 @@ export default class LoginPage extends Component {
          <Image source={require('../images/app/hotshot.png')} style={styles.logo}>
               </Image>
         <LoginForm />
-           <Button title='go to my liga' onPress={() => this.navigateTo("MyLiga")}>
+           <Button title='go to my league' onPress={() => this.navigateTo("MyLiga")}>
         </Button>
       </ImageBackground>
     );

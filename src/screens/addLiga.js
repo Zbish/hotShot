@@ -51,14 +51,14 @@ import AddGames from '../components/AddGames'
           <View style={styles.sub1}>
           <TextInput underLineColorAndroid='transparent'
                    placeholderTextColor="black"
-                   placeholder='liga name'
+                   placeholder='league name'
                    style={styles.textInput}
                    onChangeText={(val) => this.onChange(val)}
                    value={this.state.ligaName}
         />
           </View>
        <View style={styles.sub2}>
-       <AddFriend friends={this.props.friends.friends} addPlayer={(name)=>this.addPlayer(name)} />
+       <AddFriend friends={this.props.friends} addPlayer={(name)=>this.addPlayer(name)} />
             <View style={styles.friendsInLiga}>
               <Text style={styles.text}>Players :</Text>
                     {
@@ -72,10 +72,10 @@ import AddGames from '../components/AddGames'
          <View style={styles.gamesInLiga}>
               <Text style={styles.text}>Games : {this.state.myGames.length}</Text>
             </View>
-         <AddGames style={styles.games} allgames={this.props.AllGames.allGames} teams={this.props.team} addgame={(game) => this.addGame(game)} />
+         <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addgame={(game) => this.addGame(game)} />
          </View>
 
-            <Button title={'add liga'} onPress={()=>this.addLiga()} ></Button>
+            <Button title={'add league'} onPress={()=>this.addLiga()} ></Button>
         </View>
 
       </ImageBackground>
@@ -130,16 +130,16 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      liga: state.liga.liga,
-      AllGames:state.allGames,
-      friends:state.friends,
-      team:state.team
+      league: state.league,
+      games:state.games,
+      team:state.team,
+      friends: state.friends
     }
   }
 
   function mapDispatchToProps (dispatch) {
     return {
-      addNewLiga: (name) => dispatch(addNewLiga(name)),
+      addNewLiga: (league) => dispatch(addNewLiga(league)),
     }
   }
 

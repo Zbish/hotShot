@@ -11,8 +11,8 @@ export default class Games extends Component {
     this.props.getMatchNum(num)
   }
   render() {
+    console.log('dddddd', this.props)
     var tempDate = new Date(this.props.gamesList[0].Date);
-    const ligas = this.props.gamesList
     return (
       <View style={styles.container}>
            <View style={styles.dateContainer}>
@@ -20,7 +20,7 @@ export default class Games extends Component {
           </View>
           {
             this.props.gamesList.map((item, index) => {
-            return <Game key={index} 
+            return <Game key={index}
                          item={item}
                          teams={this.props.teams}
                          gamenum={(num)=>this.gameNum(num)}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
       borderWidth: 0.6,
     },
     dateContainer:{
-     
+
           },
     header:{
         flexDirection:'row',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     ligaData:{
         alignSelf:'center',
         color:'black',
-        
+
     },
-    
+
   });

@@ -27,14 +27,14 @@ class Liga extends Component {
     console.log('num', num)
   }
   render() {
-    const liga = this.props.liga
+    const league = this.props.league
     const teams = this.props.team
     const index = this.props.navigation.state.params.index
-    
+
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={liga[index].games} teams={teams} getMatchNum={(match)=>this.getGameNum(match)}></Games>
-          <Ranking RankList={liga[index]} ></Ranking>
+          <Games gamesList={league[index].games} teams={teams} getMatchNum={(match)=>this.getGameNum(match)}></Games>
+          <Ranking RankList={league[index]} ></Ranking>
       </ScrollView>
     );
   }
@@ -49,18 +49,18 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      liga: state.liga.liga,
+      league: state.league,
       team:state.team
     }
   }
-  
+
   function mapDispatchToProps (dispatch) {
     return {
       dispatchAddPerson: (person) => dispatch(addPerson(person)),
       dispatchdeletePerson: (person) => dispatch(deletePerson(person))
     }
   }
-  
+
   export default connect(
     mapStateToProps,
     mapDispatchToProps,

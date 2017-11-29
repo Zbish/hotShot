@@ -1,4 +1,4 @@
-exports.round2 = [
+export default [
   //------round 2
   {
     team2: 'A3',

@@ -16,7 +16,7 @@ export default class AddGames extends Component {
       {
         if(array[i].match == match){
           this.addGame(array[i])
-          return 
+          return
         }
       }
       return null
@@ -30,20 +30,20 @@ export default class AddGames extends Component {
   render() {
     return (
           <ScrollView style={styles.scroll}>
-            
+
             {/* <Text style={styles.text}>ADD Games</Text>
               {
                 this.props.allgames[0].map((item, index) => {
-                            return <Button 
+                            return <Button
                                         style={styles.text}
                                         key={index} item={item}
-                                        onPress={()=>this.addGames(item.match,this.props.allgames[0])} 
+                                        onPress={()=>this.addGames(item.match,this.props.allgames[0])}
                                         title={item.match.toString()}
                                         ></Button>
           })
         } */}
-        <Games  gamesList={this.props.allgames[0]} teams={this.props.teams} getMatchNum={(match)=>this.getGameNum(match,this.props.allgames[0])}/>
-          
+        <Games  gamesList={this.props.games.rounds[0]} teams={this.props.teams} getMatchNum={(match)=>this.getGameNum(match,this.props.games.rounds[0])}/>
+
           </ScrollView>
     );
   }
@@ -52,8 +52,8 @@ export default class AddGames extends Component {
 const styles = StyleSheet.create({
 
   scroll:{
- 
-  },  
+
+  },
   container: {
       margin:5
     },
@@ -62,5 +62,5 @@ const styles = StyleSheet.create({
       color:'black',
       fontSize:16
     },
-   
+
   });

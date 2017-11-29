@@ -13,16 +13,16 @@ import fieldImage from '../images/app/field.jpg'
     this.props.navigation.navigate(name,{index:index,liganame:ligaName});
   }
   render() {
-      const {liga} = this.props
+    const {leagues} = this.props.leagues
 
     return (
        <ImageBackground source={fieldImage} style={styles.container}>
         {
-            liga.map((item, index) => {
+          leagues.map((item, index) => {
                             return <LigaList
                                         key={index} item={item}
-                                        listligaProps={liga[index]}
-                                        navigateToLiga={()=>this.navigateTo('Liga',index,liga[index].name)}
+                                        listligaProps={leagues[index]}
+                                        navigateToLiga={()=>this.navigateTo('Liga',index,leagues[index].name)}
             />
           })
         }
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   });
   function mapStateToProps (state) {
     return {
-      liga: state.liga.liga
+      leagues: state.leagues
     }
   }
 

@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import loginPage from'./screens/loginPage'
 import myLiga from'./screens/myLiga'
 import addliga from'./screens/addLiga'
-import liga from'./screens/liga'
+import league from'./screens/league'
 
 export default RootStackNavigator = StackNavigator(
   { /////OMRI YA ZAIN!!!!
@@ -31,7 +31,7 @@ export default RootStackNavigator = StackNavigator(
       }
     },
     Liga:{
-      screen:liga,
+      screen:league,
       navigationOptions: {
         headerStyle: { backgroundColor: 'green' },
         headerTitleStyle: { color: '#e2ac56' },

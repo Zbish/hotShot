@@ -12,7 +12,7 @@ export default class Game extends Component {
            if(array[i].code == code)
               {
                 return array[i].name
-              }   
+              }
       }
     }
     getMatchNum(num){
@@ -22,8 +22,8 @@ export default class Game extends Component {
     var team1 =   this.props.item.team1
     var team2 =   this.props.item.team2
     var item = this.props.item
-      var team3 = this.getTeam(team1,this.props.teams.team)
-      var team4 = this.getTeam(team2,this.props.teams.team)
+      var team3 = this.getTeam(team1,this.props.teams)
+      var team4 = this.getTeam(team2,this.props.teams)
       var tempDate = new Date(item.Date);
     return (
       <TouchableHighlight style={styles.wrapper} underlayColor='grey' onPress={()=>this.getMatchNum(item.match)} >
@@ -50,7 +50,7 @@ export default class Game extends Component {
 
 const styles = StyleSheet.create({
     wrapper: {
-     
+
     },
     container:{
       backgroundColor: '#EAEDED',
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
       flex:3
   },
   teamName:{
-        alignSelf:'center'  
+        alignSelf:'center'
     },
     logo:{
         width:30,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     score:{
         flex:1,
         alignSelf:'center',
-        color:'black' 
+        color:'black'
     },
     Text:{
       fontSize:12
