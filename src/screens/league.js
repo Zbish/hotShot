@@ -10,20 +10,16 @@ import { compareDates } from '../utils';
 // import { addPerson, deletePerson } from '../../actions';
 
 class League extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: `${navigation.state.params.liganame}`,
-  });
-  getGameNum(num){
-    console.log('num', num)
-  }
+  // static navigationOptions = ({ navigation, leagues }) => ({
+  //   title: `${leagues.currentLeague.name}`,
+  // });
   render() {
-    const league = this.props.leagues.league
-    const teams = this.props.teams
+    const league = this.props.league
 
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={league[index].games} teams={teams} getMatchNum={(match)=>this.getGameNum(match)}></Games>
-          <Ranking RankList={league[index]} ></Ranking>
+          <Games gamesList={league.games}></Games>
+          <Ranking RankList={league} ></Ranking>
       </ScrollView>
     );
   }
@@ -38,7 +34,7 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      leagues: state.leagues,
+      league: state.leagues.currentLeague,
       teams:state.teams
     }
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
 import LigaList from '../components/LigaList'
 import { connect } from 'react-redux'
-import { addPerson, deletePerson } from '../actions'
+import { addPerson, deletePerson, setCurrentLeague } from '../actions'
 import fieldImage from '../images/app/field.jpg'
  class MyLiga extends Component {
   constructor(props) {
@@ -23,11 +23,11 @@ import fieldImage from '../images/app/field.jpg'
     return (
        <ImageBackground source={fieldImage} style={styles.container}>
         {
-          leagues.map((item, index) => {
+          leagues.map((league, index) => {
                             return <LigaList
-                                        key={index} item={item}
-                                        listligaProps={leagues[index]}
-                                        navigateToLiga={()=>this.navigateTo('Liga',index,leagues[index].name)}
+                                        key={index} item={league}
+                                        league={league}
+                                        onPress={(league)=>this.selectLeague(league)}
             />
           })
         }

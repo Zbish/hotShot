@@ -5,7 +5,7 @@ export default [
     team1: 'Winner-57',
     match: 61,
     group: 'samiFinals',
-    Date: 'July 10 2018 21:00',
+    date: 'July 10 2018 21:00',
     stadium: 'Nizhny Novgorod',
     score: {
       team2: 0,
@@ -17,7 +17,7 @@ export default [
     team1: 'Winner-59',
     match: 62,
     group: 'samiFinals',
-    Date: 'July 11 2018 21:00',
+    date: 'July 11 2018 21:00',
     stadium: 'Kazan Arena',
     score: {
       team2: 0,
@@ -25,4 +25,9 @@ export default [
     }
   },
 
-]
+].map(item => {
+  return {
+    ...item,
+    date: new Date(item.date).getTime()
+  }
+})

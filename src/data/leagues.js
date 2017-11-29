@@ -58,7 +58,7 @@ export default [{
           team1: 0
         }
       ],
-      Date: 'June 14 2018 18:00',
+      date: 'June 14 2018 18:00',
       stadium: 'LuzhnikiStadium(Moscow)',
       score: {
         team2: 0,
@@ -96,7 +96,7 @@ export default [{
           team1: 1
         }
       ],
-      Date: 'June 15 2018 15:50',
+      date: 'June 15 2018 15:50',
       stadium: 'Ekaterinburg Arena',
       score: {
         team2: 2,
@@ -135,7 +135,7 @@ export default [{
           team1: 3
         }
       ],
-      Date: 'June 16 2018 21:00',
+      date: 'June 16 2018 21:00',
       stadium: 'Saint Petersburg Stadium',
       score: {
         team2: 5,
@@ -173,12 +173,17 @@ export default [{
           team1: 3
         }
       ],
-      Date: 'June 15 2018 18:00',
+      date: 'June 15 2018 18:00',
       stadium: 'Fisht Stadium (Sochi)',
       score: {
         team2: 1,
         team1: 2
       }
     },
-  ]
+  ].map(item => {
+    return {
+      ...item,
+      date: new Date(item.date).getTime()
+    }
+  })
 }, ]

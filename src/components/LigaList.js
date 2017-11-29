@@ -6,10 +6,10 @@ import { View,
          TouchableHighlight,
          ImageBackground } from 'react-native'
 import Ball from '../images/app/football.png'
- const LigaList = ({listligaProps,navigateToLiga }) => {
-    const {players,games,name} = listligaProps
+ const LigaList = ({league, onPress }) => {
+    const {players,games,name} = league
 
-        return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>navigateToLiga()}>
+        return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>onPress(league)}>
                 <View style={styles.wrapper}>
                     <View style={styles.container}>
                         <Text style={styles.title}>{name}</Text>
@@ -23,13 +23,13 @@ import Ball from '../images/app/football.png'
                                 <Text style={styles.text}>games: {games.length}</Text>
                             </View>
                     </View>
-                </View>  
+                </View>
                 </TouchableHighlight>
 }
 const styles = {
     highLight:{
         borderRadius:10,
-        borderWidth:1, 
+        borderWidth:1,
         borderColor: 'black',
         backgroundColor: 'rgb(242, 242, 242)',
         margin:5,

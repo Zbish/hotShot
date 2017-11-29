@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
 import {Text,View,StyleSheet,FlatList} from 'react-native'
 import Game from '../components/Game'
+import _ from 'lodash';
+import {withoutTime} from '../utils';
+import moment from 'moment';
 
 export default class Games extends Component {
   constructor(props) {
     super(props)
   }
-  gameNum(num)
-  {
-    this.props.getMatchNum(num)
-  }
+
   render() {
-    var tempDate = new Date(this.props.gamesList[0].Date);
+    const gamesByDate = _.chain(this.props.gamesList)
+                          .sortBy(["date"])
+                          .groupBy(game => {
+                            return withoutTime(game.date);
+                          }).value()
     return (
       <View style={styles.container}>
-           <View style={styles.dateContainer}>
-              <Text style={styles.ligaData}>{tempDate.toLocaleDateString()}</Text>
-          </View>
-          {
-            this.props.gamesList.map((item, index) => {
-            return <Game key={index}
-                         item={item}
-                         teams={this.props.teams}
-                         gamenum={(num)=>this.gameNum(num)}
+        {
+          _.map(gamesByDate, (games, date) => {
+            return (
+              <View key={date}>
+                <View style={styles.dateContainer}>
+                  <Text style={styles.ligaData}>{moment(date).format('MMMM Do YYYY')}</Text>
+                </View>
+                {
+                  games.map((item, index) => {
+                  return <Game key={index}
+                              item={item}
+                              onPress={(item)=>this.props.onPress(item)}
 
-            />
-          })
+                  />
+                })
+              }
+            </View>
+          )}
+        )
         }
       </View>
     );
