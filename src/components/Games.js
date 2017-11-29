@@ -11,7 +11,6 @@ export default class Games extends Component {
     this.props.getMatchNum(num)
   }
   render() {
-    console.log('dddddd', this.props)
     var tempDate = new Date(this.props.gamesList[0].Date);
     return (
       <View style={styles.container}>
