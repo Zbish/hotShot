@@ -1,8 +1,28 @@
-import { ADD_PERSON, DELETE_PERSON,ADD_LIGA } from './actionNames';
+import { ADD_NEW_LEAGUE,
+        ADD_PLAYER_TO_NEW_LEAGUE,
+        ADD_GAME_TO_NEW_LEAGUE,
+        CHANGE_NAME_OF_NEW_LEAGUE } from './actionNames';
 
-export function addNewLiga(league) {
+export function addNewLeague() {
   return {
-    type: ADD_LIGA,
-    league,
+    type: ADD_NEW_LEAGUE,
+  };
+}
+export function addPlayerToNewLeague(player) {
+  return {
+    type: ADD_PLAYER_TO_NEW_LEAGUE,
+    player
+  };
+}
+export function addGameToNewLeague(game) {
+  return {
+    type: ADD_GAME_TO_NEW_LEAGUE,
+    game
+  };
+}
+export function changeNameOfNewLeague(name) {
+  return {
+    type: CHANGE_NAME_OF_NEW_LEAGUE,
+    name
   };
 }

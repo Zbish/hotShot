@@ -1,15 +1,58 @@
-import { ADD_LIGA } from '../actions/actionNames';
+import { ADD_NEW_LEAGUE,
+        ADD_PLAYER_TO_NEW_LEAGUE,
+        ADD_GAME_TO_NEW_LEAGUE,
+        CHANGE_NAME_OF_NEW_LEAGUE } from '../actions/actionNames';
 import { leagues } from '../data/index';
 
-export default function ligaReducer(state = {leagues}, action) {
+const createNewLeague = () => {
+  return {
+    name: '',
+    players: [],
+    games: []
+  }
+}
+
+export default (state, action) => {
   switch (action.type) {
-      case ADD_LIGA:
+      case ADD_NEW_LEAGUE:
       return{
         ...state,
-        leagues: [...leagues, action.league],
+        leagues: [...leagues, state.newLeague],
+        newLeague: createNewLeague()
       };
-    default:
-      return state;
+      break;
+      case ADD_PLAYER_TO_NEW_LEAGUE:
+        return{
+          ...state,
+          newLeague: {
+            ...state.newLeague,
+            players: [...state.newLeague.players, action.player]
+          }
+        }
+        break;
+        case ADD_GAME_TO_NEW_LEAGUE:
+          return{
+            ...state,
+            newLeague: {
+              ...state.newLeague,
+              games: [...state.newLeague.games, action.game]
+            }
+          }
+          break;
+        case CHANGE_NAME_OF_NEW_LEAGUE:
+          return{
+            ...state,
+            newLeague: {
+              ...state.newLeague,
+              name: action.name
+            }
+          }
+          break;
+      default:
+        return state || {
+          leagues: leagues,
+          newLeague: createNewLeague(),
+        };
   }
 }
 
