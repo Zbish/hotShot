@@ -22,7 +22,7 @@ export default class AddGames extends Component {
       return null
   }
   addGame(game){
-      this.props.addgame(game)
+      this.props.addGame(game)
   }
   getGameNum(num,array){
     this.addGames(num,array)

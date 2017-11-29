@@ -12,6 +12,11 @@ import fieldImage from '../images/app/field.jpg'
   {
     this.props.navigation.navigate(name,{index:index,liganame:ligaName});
   }
+  selectLeague(league) {
+    this.props.setCurrentLeague(league.name);
+    this.props.navigation.navigate('Liga');
+  }
+
   render() {
     const {leagues} = this.props.leagues
 
@@ -58,6 +63,7 @@ const styles = StyleSheet.create({
 
   function mapDispatchToProps (dispatch) {
     return {
+      setCurrentLeague: (name) => dispatch(setCurrentLeague(name))
     }
   }
 

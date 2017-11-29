@@ -17,9 +17,8 @@ class League extends Component {
     console.log('num', num)
   }
   render() {
-    const league = this.props.league
-    const teams = this.props.team
-    const index = this.props.navigation.state.params.index
+    const league = this.props.leagues.league
+    const teams = this.props.teams
 
     return (
       <ScrollView style={styles.container}>
@@ -39,8 +38,8 @@ const styles = StyleSheet.create({
 
   function mapStateToProps (state) {
     return {
-      league: state.league,
-      team:state.team
+      leagues: state.leagues,
+      teams:state.teams
     }
   }
 

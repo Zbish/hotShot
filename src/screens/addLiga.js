@@ -27,7 +27,6 @@ import styles from './addLiga.style';
   }
 
   render() {
-    console.log(this.props)
     return (
       <ImageBackground source={require('../images/app/field.jpg')} style={styles.wrapper}>
         <View style={styles.container}>
@@ -55,7 +54,7 @@ import styles from './addLiga.style';
          <View style={styles.gamesInLiga}>
               <Text style={styles.text}>Games : {this.props.leagues.newLeague.games.length}</Text>
             </View>
-         <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addgame={(game) => this.addGame(game)} />
+         <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addGame={(game) => this.addGame(game)} />
          </View>
 
             <Button title={'add league'} onPress={()=>this.addLiga()} ></Button>
