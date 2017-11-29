@@ -1,10 +1,22 @@
 // configureStore.js
 
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import RootStackNavigator from './src/navigator';
+import {StackNavigator } from "react-navigation";
 
 export default function configureStore() {
-  let store = createStore(rootReducer, composeWithDevTools())
+  const navReducer = (state, action) => {
+    const nextState = RootStackNavigator.router.getStateForAction(action, state);
+    return nextState || state;
+  };
+
+  const appReducer = combineReducers({
+    nav: navReducer,
+    ...rootReducer
+  });
+
+  let store = createStore(appReducer, composeWithDevTools())
   return store
 }

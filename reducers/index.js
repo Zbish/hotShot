@@ -8,13 +8,11 @@ import freinds from './freinds'
 import team from './team'
 import game from './game'
 
-const rootReducer = combineReducers({
-    people,
-    liga,
-    allGames,
-    freinds,
-    team,
-    game
-})
-
-export default rootReducer
+export default {
+  people,
+  liga,
+  allGames,
+  freinds,
+  team,
+  game
+}

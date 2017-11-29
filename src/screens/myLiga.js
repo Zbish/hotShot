@@ -14,14 +14,14 @@ import fieldImage from '../images/app/field.jpg'
   }
   render() {
       const {liga} = this.props
- 
+
     return (
        <ImageBackground source={fieldImage} style={styles.container}>
         {
             liga.map((item, index) => {
-                            return <LigaList 
+                            return <LigaList
                                         key={index} item={item}
-                                        listligaProps={liga[index]}      
+                                        listligaProps={liga[index]}
                                         navigateToLiga={()=>this.navigateTo('Liga',index,liga[index].name)}
             />
           })
@@ -55,14 +55,14 @@ const styles = StyleSheet.create({
       liga: state.liga.liga
     }
   }
-  
+
   function mapDispatchToProps (dispatch) {
     return {
       dispatchAddPerson: (person) => dispatch(addPerson(person)),
       dispatchdeletePerson: (person) => dispatch(deletePerson(person))
     }
   }
-  
+
   export default connect(
     mapStateToProps,
     mapDispatchToProps,

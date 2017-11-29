@@ -1,67 +1,30 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import { connect } from 'react-redux';
-import { addPerson, deletePerson } from './actions';
+import { addNavigationHelpers } from "react-navigation";
+import {connect, Provider} from 'react-redux';
 import RootStackNavigator from './src/navigator';
+import configureStore from './configureStore'
+const store = configureStore()
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const AppWithNavigationState = connect(state => {
+  return {
+    nav: state.nav,
+  }
+})(({dispatch, nav}) => (
+  <RootStackNavigator navigation={addNavigationHelpers({ dispatch, state: nav })}/>
+));
 
- class App extends Component {
-  state = {
-    inputValue: '',
-  }
-  addPerson = () => {
-    if (this.state.inputValue === '') return;
-    this.props.dispatchAddPerson({
-      name: this.state.inputValue,
-    });
-    this.setState({ inputValue: '' });
-  }
-  deletePerson = (person) => {
-    this.props.dispatchdeletePerson(person)
-  }
-  updateInput = (inputValue) => {
-    this.setState({ inputValue })
+class App extends React.Component {
+  constructor() {
+      super();
   }
 
   render() {
-
-    return (<RootStackNavigator />
-    )
+      return (
+          <Provider store={store}>
+              <AppWithNavigationState />
+          </Provider>
+      )
   }
 }
 
-function mapStateToProps (state) {
-  return {
-    people: state.people.people
-  }
-}
-
-function mapDispatchToProps (dispatch) {
-  return {
-    dispatchAddPerson: (person) => dispatch(addPerson(person)),
-    dispatchdeletePerson: (person) => dispatch(deletePerson(person))
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App)
-
+export default App;
