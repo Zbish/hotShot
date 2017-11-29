@@ -6,8 +6,8 @@ import {Text,
   ImageBackground,
   TextInput} from 'react-native'
 import { connect } from 'react-redux';
-import { addNewLiga } from '../../actions';
-import AddFreind from '../components/AddFreinds'
+import { addNewLiga } from '../actions';
+import AddFriend from '../components/AddFriends'
 import AddGames from '../components/AddGames'
 
  class AddLiga extends Component {
@@ -44,22 +44,22 @@ import AddGames from '../components/AddGames'
     this.setState({ ligaName: val })
   }
   render() {
-    
+
     return (
       <ImageBackground source={require('../images/app/field.jpg')} style={styles.wrapper}>
         <View style={styles.container}>
           <View style={styles.sub1}>
           <TextInput underLineColorAndroid='transparent'
                    placeholderTextColor="black"
-                   placeholder='liga name' 
+                   placeholder='liga name'
                    style={styles.textInput}
                    onChangeText={(val) => this.onChange(val)}
                    value={this.state.ligaName}
         />
           </View>
        <View style={styles.sub2}>
-       <AddFreind freinds={this.props.freinds.freinds} addPlayer={(name)=>this.addPlayer(name)} />
-            <View style={styles.freindsInLiga}>
+       <AddFriend friends={this.props.friends.friends} addPlayer={(name)=>this.addPlayer(name)} />
+            <View style={styles.friendsInLiga}>
               <Text style={styles.text}>Players :</Text>
                     {
                     this.state.players.map((item, index) => {
@@ -74,10 +74,10 @@ import AddGames from '../components/AddGames'
             </View>
          <AddGames style={styles.games} allgames={this.props.AllGames.allGames} teams={this.props.team} addgame={(game) => this.addGame(game)} />
          </View>
-         
+
             <Button title={'add liga'} onPress={()=>this.addLiga()} ></Button>
         </View>
-      
+
       </ImageBackground>
     );
   }
@@ -112,9 +112,9 @@ const styles = StyleSheet.create({
     sub3:{
       flex:3
     },
-    freindsInLiga:{
+    friendsInLiga:{
       flexDirection:'row',
-      
+
     },
     gamesInLiga:{
       flexDirection:'column',
@@ -132,17 +132,17 @@ const styles = StyleSheet.create({
     return {
       liga: state.liga.liga,
       AllGames:state.allGames,
-      freinds:state.freinds,
+      friends:state.friends,
       team:state.team
     }
   }
-  
+
   function mapDispatchToProps (dispatch) {
     return {
       addNewLiga: (name) => dispatch(addNewLiga(name)),
     }
   }
-  
+
   export default connect(
     mapStateToProps,
     mapDispatchToProps,

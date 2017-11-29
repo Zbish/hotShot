@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
 import LigaList from '../components/LigaList'
 import { connect } from 'react-redux'
-import { addPerson, deletePerson } from '../../actions'
+import { addPerson, deletePerson } from '../actions'
 import fieldImage from '../images/app/field.jpg'
  class MyLiga extends Component {
   constructor(props) {
@@ -58,8 +58,6 @@ const styles = StyleSheet.create({
 
   function mapDispatchToProps (dispatch) {
     return {
-      dispatchAddPerson: (person) => dispatch(addPerson(person)),
-      dispatchdeletePerson: (person) => dispatch(deletePerson(person))
     }
   }
 

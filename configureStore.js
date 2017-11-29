@@ -1,7 +1,7 @@
 // configureStore.js
 
 import { createStore, combineReducers } from 'redux'
-import rootReducer from './reducers'
+import rootReducer from './src/reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import RootStackNavigator from './src/navigator';
 import {StackNavigator } from "react-navigation";

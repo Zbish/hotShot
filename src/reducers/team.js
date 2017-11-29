@@ -42,9 +42,9 @@ const initialState = { team: [
                                     {name:'Uruguay',code:'H4'},
                                 ] }
 
-export default function freindsReducer(state = initialState, action) {
+export default function friendsReducer(state = initialState, action) {
   switch (action.type) {
-   
+
     default:
       return state;
   }

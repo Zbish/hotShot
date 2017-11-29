@@ -1,7 +1,5 @@
-// reducers/freinds.js
-import { ADD_PERSON, DELETE_PERSON } from '../constants';
-
-const initialState = { freinds: [
+// reducers/friends.js
+const initialState = { friends: [
                                     {name:'gil',points:70,code:1},
                                     {name:'dor',points:50,code:2},
                                     {name:'omri',points:60,code:3},
@@ -9,16 +7,8 @@ const initialState = { freinds: [
                                     {name:'nizan',points:5,code:5}
                                 ] }
 
-export default function freindsReducer(state = initialState, action) {
+export default function friendsReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_PERSON:
-      return {
-        people: [...state.people, action.person],
-      };
-    case DELETE_PERSON:
-      return {
-        people: state.people.filter(p => p.name !== action.person.name),
-      };
     default:
       return state;
   }

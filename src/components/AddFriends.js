@@ -6,16 +6,16 @@ import {Text,
   ImageBackground,
   TextInput} from 'react-native'
 
-export default class AddFreinds extends Component {
+export default class AddFriends extends Component {
   constructor(props) {
     super(props)
   }
-  addFreinds(code,array){
+  addFriends(code,array){
     for(i=0 ; i < array.length ; i++)
       {
         if(array[i].code == code){
           this.addPlayer(array[i])
-          return 
+          return
         }
       }
       return null
@@ -27,11 +27,11 @@ export default class AddFreinds extends Component {
     return (
           <View style={styles.container}>
                <Text style={styles.text}>ADD PLAYERS</Text>
-              <Button onPress={()=>this.addFreinds(1,this.props.freinds)} title={'Gil'}></Button>
-              <Button onPress={()=>this.addFreinds(2,this.props.freinds)} title={'dor'}></Button>
-              <Button onPress={()=>this.addFreinds(3,this.props.freinds)} title={'omri'}></Button>
-              <Button onPress={()=>this.addFreinds(5,this.props.freinds)} title={'nizan'}></Button>
-              <Button onPress={()=>this.addFreinds(4,this.props.freinds)} title={'azran'}></Button>
+              <Button onPress={()=>this.addFriends(1,this.props.friends)} title={'Gil'}></Button>
+              <Button onPress={()=>this.addFriends(2,this.props.friends)} title={'dor'}></Button>
+              <Button onPress={()=>this.addFriends(3,this.props.friends)} title={'omri'}></Button>
+              <Button onPress={()=>this.addFriends(5,this.props.friends)} title={'nizan'}></Button>
+              <Button onPress={()=>this.addFriends(4,this.props.friends)} title={'azran'}></Button>
           </View>
     );
   }

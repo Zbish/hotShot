@@ -1,5 +1,5 @@
 // reducers/liga.js
-import { ADD_LIGA } from '../constants';
+import { ADD_LIGA } from '../actions/actionNames';
 
 const initialState = { liga: [{name:'Mondial',
                                players:[
@@ -9,7 +9,7 @@ const initialState = { liga: [{name:'Mondial',
                                         {name:'azran',points:0,code:4},
                                         {name:'nizan',points:0,code:5}
                                       ],
-                               
+
                                       games:[
                                          {team2:'A2',team1:'A1',match:1,group:'A',bats:[{playerCode:1,team2:0,team1:0},
                                                                                         {playerCode:2,team2:1,team1:1},
@@ -25,7 +25,7 @@ const initialState = { liga: [{name:'Mondial',
                                                                                             {playerCode:5,team2:3,team1:1}],
                                             Date:'June 15 2018 15:50',stadium:'Ekaterinburg Arena',score:{team2:2,team1:1}
                                                },
-                                       
+
                                                {team2:'B2',team1:'B1',match:3,group:'B',bats:[{playerCode:1,team2:5,team1:5},
                                                                                               {playerCode:2,team2:0,team1:0},
                                                                                               {playerCode:3,team2:5,team1:5},

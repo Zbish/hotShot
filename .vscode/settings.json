@@ -1,0 +1,7 @@
+{
+  "search.exclude": {
+    "**/ios": true,
+    "**/android": true,
+    "yarn.lock": true
+  }
+}
