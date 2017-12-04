@@ -33,8 +33,9 @@ function loserss(array){
 }
 function getPoints(array)
 {
-  var finish = array.players
-  var games = array.games 
+  console.log('hh' , array)
+  var finish = array.bats.players
+  var games = array.round1 
   var Allplayers = array.players
   for(i = 0 ; i < games.length ; i++)
     {

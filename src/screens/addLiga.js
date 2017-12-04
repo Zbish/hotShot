@@ -26,7 +26,8 @@ class AddLeague extends Component {
     this.props.addPlayer(player);
   }
   addGame(game) {
-    this.props.addGame(game);
+       var newGame = {gameNumber:game.match,bats:[]}    
+       this.props.addGame(newGame);
   }
   onChange(name) {
     this.props.changeName(name);

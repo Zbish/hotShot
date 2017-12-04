@@ -28,10 +28,7 @@ export default [{
   ],
 
   games: [{
-      team2: 'A2',
-      team1: 'A1',
-      match: 1,
-      group: 'A',
+      gameNumber: 12,
       bats: [{
           playerCode: 1,
           team2: 0,
@@ -58,18 +55,9 @@ export default [{
           team1: 0
         }
       ],
-      date: 'June 14 2018 18:00',
-      stadium: 'LuzhnikiStadium(Moscow)',
-      score: {
-        team2: 0,
-        team1: 0
-      }
     },
     {
-      team2: 'A4',
-      team1: 'A3',
-      match: 2,
-      group: 'A',
+      gameNumber: 2,
       bats: [{
           playerCode: 1,
           team2: 2,
@@ -96,19 +84,10 @@ export default [{
           team1: 1
         }
       ],
-      date: 'June 15 2018 15:50',
-      stadium: 'Ekaterinburg Arena',
-      score: {
-        team2: 2,
-        team1: 1
-      }
     },
 
     {
-      team2: 'B2',
-      team1: 'B1',
-      match: 3,
-      group: 'B',
+      gameNumber: 3,
       bats: [{
           playerCode: 1,
           team2: 5,
@@ -135,18 +114,9 @@ export default [{
           team1: 3
         }
       ],
-      date: 'June 16 2018 21:00',
-      stadium: 'Saint Petersburg Stadium',
-      score: {
-        team2: 5,
-        team1: 5
-      }
     },
     {
-      team2: 'B4',
-      team1: 'B3',
-      match: 4,
-      group: 'B',
+      gameNumber: 4,
       bats: [{
           playerCode: 1,
           team2: 1,
@@ -173,17 +143,6 @@ export default [{
           team1: 3
         }
       ],
-      date: 'June 15 2018 18:00',
-      stadium: 'Fisht Stadium (Sochi)',
-      score: {
-        team2: 1,
-        team1: 2
-      }
     },
-  ].map(item => {
-    return {
-      ...item,
-      date: new Date(item.date).getTime()
-    }
-  })
+  ]
 }, ]

@@ -6,7 +6,7 @@ import {Text,
 import Games from '../components/Games'
 import Ranking from '../components/Ranking'
 import { connect } from 'react-redux';
-import { compareDates } from '../utils';
+import { compareDates,getLeagueGames } from '../utils';
 // import { addPerson, deletePerson } from '../../actions';
 
 class League extends Component {
@@ -14,12 +14,10 @@ class League extends Component {
   //   title: `${leagues.currentLeague.name}`,
   // });
   render() {
-    const league = this.props.league
-
+    const games = getLeagueGames(this.props)
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={league.games}></Games>
-          <Ranking RankList={league} ></Ranking>
+          <Games gamesList={games}></Games>
       </ScrollView>
     );
   }
@@ -35,7 +33,8 @@ const styles = StyleSheet.create({
   function mapStateToProps (state) {
     return {
       league: state.leagues.currentLeague,
-      teams:state.teams
+      teams:state.teams,
+      gamesSchedule:state.gamesSchedule
     }
   }
 
