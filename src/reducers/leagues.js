@@ -19,7 +19,7 @@ export default (state, action) => {
       case ADD_NEW_LEAGUE:
       return{
         ...state,
-        leagues: [...leagues, state.newLeague],
+        leagues: [...state.leagues, state.newLeague],
         newLeague: createNewLeague()
       };
       break;
