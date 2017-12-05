@@ -9,6 +9,7 @@ import {Text,
 import Games from './Games'
 export default class AddGames extends Component {
   render() {
+    console.log('addgames', this.props.games.rounds[0])
     return (
           <ScrollView style={styles.scroll}>
             <Games gamesList={this.props.games.rounds[0]}

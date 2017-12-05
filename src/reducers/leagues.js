@@ -3,8 +3,11 @@ import { ADD_NEW_LEAGUE,
         ADD_PLAYER_TO_NEW_LEAGUE,
         ADD_GAME_TO_NEW_LEAGUE,
         CHANGE_NAME_OF_NEW_LEAGUE,
-        SET_CURRENT_LEAGUE } from '../actions/actionNames';
+        SET_CURRENT_LEAGUE,
+        Change_Bet
+      } from '../actions/actionNames';
 import { leagues } from '../data/index';
+import {changeBet} from '../utils'
 
 const createNewLeague = () => {
   return {
@@ -54,6 +57,13 @@ export default (state, action) => {
           return{
             ...state,
             currentLeague: _.find(state.leagues, {name: action.name})
+          }
+          break;
+          case Change_Bet:
+            const rak =  changeBet(state,action)
+          return{
+            ...state,
+            ...rak
           }
           break;
       default:

@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import {Text,View,Image,StyleSheet} from 'react-native'
+import friends from'../data/friends'
+import _ from 'lodash';
 
+function getIndex(code)
+{
+  var codes = _.findIndex(friends, function(o) { return o.code == code; });
+    return  codes
+
+}
 export default class Rank extends Component {
   constructor(props) {
     super(props)
@@ -8,14 +16,15 @@ export default class Rank extends Component {
   render() {
       const item = this.props.item
       const place = this.props.place
+      const player =  friends[getIndex(item.playerCode)]
     return (
       <View style={styles.container}>
           <View style={styles.header}>
           <View style={styles.rankContainer}> 
               <Text>{place}</Text>
                 <Image style={styles.rank} source={require('../images/users/caspi.jpg')}></Image>
-                <Text>{item.name}</Text> 
-                <Text>{item.points}</Text> 
+                <Text>{player.name}</Text> 
+                <Text>{'    '}{item.points}</Text> 
             </View>  
           </View>
       </View>

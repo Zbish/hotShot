@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Text,View,StyleSheet,FlatList} from 'react-native'
+import {Text,View,StyleSheet,FlatList,Slider} from 'react-native'
 import Game from '../components/Game'
+import Bets from '../components/Bets'
 import _ from 'lodash';
 import {withoutTime} from '../utils';
 import moment from 'moment';
@@ -9,8 +10,19 @@ export default class Games extends Component {
   constructor(props) {
     super(props)
   }
-
+  renderIf(condition, content) {
+    if (condition) {
+        return content;
+    } else {
+        return null;
+    }
+}
   render() {
+    var bets = false
+    if('bets' in this.props.gamesList[0])
+      {
+        bets =true
+      }
     const gamesByDate = _.chain(this.props.gamesList)
                           .sortBy(["date"])
                           .groupBy(game => {
@@ -27,11 +39,18 @@ export default class Games extends Component {
                 </View>
                 {
                   games.map((item, index) => {
-                  return <Game key={index}
-                              item={item}
-                              onPress={(item)=>this.props.onPress(item)}
-
-                  />
+                  return (
+                    <View key={index}>
+                  <Game item={item}
+                        onPress={(item)=>this.props.onPress(item)}
+                        
+                  ></Game>
+                  {this.renderIf(bets, 
+                    <Bets bets={false} item={item} onSlide={(value)=>this.props.chengeMyBet(value,item.match)}></Bets>
+                    
+                )}
+                  </View>
+                  )
                 })
               }
             </View>
@@ -46,7 +65,6 @@ export default class Games extends Component {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: 'gray',
-      margin:5,
       padding:5,
       borderColor: '#fff',
       borderRadius: 10,
@@ -65,5 +83,4 @@ const styles = StyleSheet.create({
         color:'black',
 
     },
-
   });

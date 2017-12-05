@@ -27,9 +27,68 @@ export const getLeagueGames = function(props){
     var schedule = props.gamesSchedule.rounds[0]
     var leagueGames = props.league.games
     var games = []
+
         _.forEach(leagueGames,function(value){
       var g = _.find(schedule,function(o){return o.match == value.gameNumber})
+      g.bets = value.bets
       games.push(g)
     })
    return games
+}
+
+export const getRanking = function(games){
+  var players = []
+  _.forEach(games,function(p){
+    _.forEach(p.bets,function(o){
+      var playerPoints = {playerCode:o.playerCode,points:compareScore(p.score,o.guess)}
+      var place = _.findIndex(players, function(l) { return l.playerCode == o.playerCode; })
+      if(place == -1)
+        {
+          players.push(playerPoints)
+        }
+        else{
+           players[place].points += playerPoints.points
+        }
+    } )
+  })
+  return players
+}
+
+export const compareScore = function(score,guess){
+  var points = 0
+     if(score.team1 == guess.team1 && guess.team2 == score.team2)
+      {
+        points = 3
+        return points
+      }
+      else if(score.team1 == score.team2 && guess.team1 == guess.team2){
+        points = 1
+        return points
+      }
+      else if(score.team1 > score.team2 && guess.team1 > guess.team2){
+        points = 1
+        return points
+      }else if(score.team1 < score.team2 && guess.team1 < guess.team2){
+        points = 1
+        return points
+      }
+
+  return points
+}
+
+export const changeBet = function(state,newBet){
+
+  var clone = _.cloneDeep(state);
+  var newBet = newBet.newBet
+  var leagueIndex = _.findIndex(clone.leagues, function(l) { return l.name == newBet.leagueName; })
+  var gamesIndex = _.findIndex(clone.leagues[leagueIndex].games, function(l) { return l.gameNumber == newBet.match; })
+  var bet = _.findIndex(clone.leagues[leagueIndex].games[gamesIndex].bets, function(l) { return l.playerCode == newBet.playerCode; })
+  if(newBet.value.team == 1)
+    {
+      clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team1 = newBet.value.bet
+    }
+    else{
+      clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team2 = newBet.value.bet
+    }
+  return clone
 }

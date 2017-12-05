@@ -2,7 +2,8 @@ import { ADD_NEW_LEAGUE,
         ADD_PLAYER_TO_NEW_LEAGUE,
         ADD_GAME_TO_NEW_LEAGUE,
         CHANGE_NAME_OF_NEW_LEAGUE,
-        SET_CURRENT_LEAGUE } from './actionNames';
+        SET_CURRENT_LEAGUE,
+        Change_Bet } from './actionNames';
 
 export function addNewLeague() {
   return {
@@ -35,3 +36,9 @@ export function setCurrentLeague(name) {
   };
 }
 
+export function chengeBet(newBet) {
+  return {
+    type: Change_Bet,
+    newBet
+  };
+}

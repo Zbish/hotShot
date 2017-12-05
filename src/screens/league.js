@@ -6,18 +6,26 @@ import {Text,
 import Games from '../components/Games'
 import Ranking from '../components/Ranking'
 import { connect } from 'react-redux';
-import { compareDates,getLeagueGames } from '../utils';
-// import { addPerson, deletePerson } from '../../actions';
+import { compareDates,getLeagueGames,getRanking } from '../utils';
+import {
+  chengeBet
+} from '../actions';
 
 class League extends Component {
   // static navigationOptions = ({ navigation, leagues }) => ({
   //   title: `${leagues.currentLeague.name}`,
   // });
+  changeMyBet(value,match){
+    const bet = {value,match:match,leagueName:this.props.league.name,playerCode:1}
+    this.props.chengeBet(bet)
+  }
   render() {
     const games = getLeagueGames(this.props)
+    const rankList = getRanking(games)
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={games}></Games>
+          <Games gamesList={games} chengeMyBet={(value,match)=>this.changeMyBet(value,match)} ></Games>
+          <Ranking rankList={rankList}></Ranking>
       </ScrollView>
     );
   }
@@ -40,8 +48,7 @@ const styles = StyleSheet.create({
 
   function mapDispatchToProps (dispatch) {
     return {
-      dispatchAddPerson: (person) => dispatch(addPerson(person)),
-      dispatchdeletePerson: (person) => dispatch(deletePerson(person))
+      chengeBet: (newBet) => dispatch(chengeBet(newBet)),
     }
   }
 
