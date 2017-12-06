@@ -24,8 +24,8 @@ class League extends Component {
     const rankList = getRanking(games)
     return (
       <ScrollView style={styles.container}>
-          <Games gamesList={games} chengeMyBet={(value,match)=>this.changeMyBet(value,match)} ></Games>
           <Ranking rankList={rankList}></Ranking>
+          <Games gamesList={games} chengeMyBet={(value,match)=>this.changeMyBet(value,match)} ></Games>
       </ScrollView>
     );
   }

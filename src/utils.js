@@ -77,18 +77,46 @@ export const compareScore = function(score,guess){
 }
 
 export const changeBet = function(state,newBet){
-
   var clone = _.cloneDeep(state);
   var newBet = newBet.newBet
   var leagueIndex = _.findIndex(clone.leagues, function(l) { return l.name == newBet.leagueName; })
   var gamesIndex = _.findIndex(clone.leagues[leagueIndex].games, function(l) { return l.gameNumber == newBet.match; })
   var bet = _.findIndex(clone.leagues[leagueIndex].games[gamesIndex].bets, function(l) { return l.playerCode == newBet.playerCode; })
-  if(newBet.value.team == 1)
+ 
+  if(bet == -1)
     {
-      clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team1 = newBet.value.bet
+      if(newBet.value.team == 1)
+        {
+          var player = {
+            playerCode: newBet.playerCode,
+            guess: {
+              team2: 0,
+              team1: newBet.value.bet
+            }
+          }
+        }
+      else{
+        var player = {
+          playerCode: newBet.playerCode,
+          guess: {
+            team2: newBet.value.bet,
+            team1: 0
+          }
+        }
+      }
+     
+      clone.leagues[leagueIndex].games[gamesIndex].bets.push(player)
+      
     }
     else{
-      clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team2 = newBet.value.bet
+      if(newBet.value.team == 1)
+        {
+          clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team1 = newBet.value.bet
+        }
+        else{
+          clone.leagues[leagueIndex].games[gamesIndex].bets[bet].guess.team2 = newBet.value.bet
+        }
     }
+  
   return clone
 }

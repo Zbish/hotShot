@@ -18,10 +18,11 @@ export default class Games extends Component {
     }
 }
   render() {
-    var bets = false
+   
+    var betsComp = false
     if('bets' in this.props.gamesList[0])
       {
-        bets =true
+        betsComp = true
       }
     const gamesByDate = _.chain(this.props.gamesList)
                           .sortBy(["date"])
@@ -45,8 +46,8 @@ export default class Games extends Component {
                         onPress={(item)=>this.props.onPress(item)}
                         
                   ></Game>
-                  {this.renderIf(bets, 
-                    <Bets bets={false} item={item} onSlide={(value)=>this.props.chengeMyBet(value,item.match)}></Bets>
+                  {this.renderIf(betsComp, 
+                    <Bets item={item} onSlide={(value)=>this.props.chengeMyBet(value,item.match)}></Bets>
                     
                 )}
                   </View>

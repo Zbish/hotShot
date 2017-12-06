@@ -4,6 +4,7 @@ import {Text,View,Slider,StyleSheet} from 'react-native'
 
 
 export default class Bets extends Component {
+  
   onSlideTeam1(value){
     const obj = {bet:value,team:1}
    this.props.onSlide(obj)
@@ -13,22 +14,28 @@ export default class Bets extends Component {
     this.props.onSlide(obj)
    }
   render() {
+    console.log('bets,' , this.props.item)
     var item
-    console.log('ggggg' , this.props.item)
-    if(!this.props.item.bets)
+    if(!this.props.item.bets.length)
       {
         item ={
           playerCode: 1,
           guess: {
-            team2: 0,
-            team1: 0
+            team2: '-',
+            team1: '-'
           }
       }
     }
     else{
       item = this.props.item.bets[0]
     }
-    console.log('hhhh' , item)
+    var startvalue = item.guess.team1
+    var startValue2 = item.guess.team2
+    if(isNaN(startvalue))
+      {
+        startvalue = 0
+        startValue2 = 0
+      }
     return (
         <View style={styles.betComponent}>
                   <Slider 
@@ -36,7 +43,7 @@ export default class Bets extends Component {
                       step={1}
                       minimumValue={0}
                       maximumValue={10}
-                      value={item.guess.team1}
+                      value={startvalue}
                       onValueChange={(val) => this.onSlideTeam1(val)}
                     />
                     <Text style={styles.score}>{item.guess.team1} : {item.guess.team2}</Text>
@@ -45,7 +52,7 @@ export default class Bets extends Component {
                       step={1}
                       minimumValue={0}
                       maximumValue={10}
-                      value={item.guess.team2}
+                      value={startValue2}
                       onValueChange={(val) => this.onSlideTeam2(val)}
                     />
       </View>
