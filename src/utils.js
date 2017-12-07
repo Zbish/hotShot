@@ -120,3 +120,38 @@ export const changeBet = function(state,newBet){
   
   return clone
 }
+
+// ranking
+export const sortArray = function(array)
+{
+  array.sort((a, b) => a.points < b.points) 
+  return (array)
+}
+export const getLeaders  = function(array){
+  leadersPlayers =[]   
+  for(i=0 ; i < 3 ; i++)
+    {
+      if(array[i] == null)
+        {
+          return (leadersPlayers)
+        }
+        else{
+          leadersPlayers.push(array[i]) 
+        }
+    }
+  return (leadersPlayers)
+}
+export const getLosers = function(array){
+  losers = []  
+  for(i=3 ; i < array.length ; i++)
+      {
+         losers.push(array[i]) 
+      }
+      return(losers)
+}
+
+export const getIndex = function(code,array)
+{
+  var codes = _.findIndex(array, function(o) { return o.code == code; });
+    return  codes
+}

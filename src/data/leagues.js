@@ -1,5 +1,5 @@
 export default [{
-  name: 'Mondial',
+  name: 'World Cup',
   players: [{
       name: 'gil',
       points: 0,

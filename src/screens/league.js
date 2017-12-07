@@ -12,14 +12,15 @@ import {
 } from '../actions';
 
 class League extends Component {
-  // static navigationOptions = ({ navigation, leagues }) => ({
-  //   title: `${leagues.currentLeague.name}`,
-  // });
+  static navigationOptions = ({ navigation }) => ({
+    title: `${navigation.state.params.title}`,
+  });
+
   changeMyBet(value,match){
     const bet = {value,match:match,leagueName:this.props.league.name,playerCode:1}
     this.props.chengeBet(bet)
   }
-  render() {
+  render() {  
     const games = getLeagueGames(this.props)
     const rankList = getRanking(games)
     return (

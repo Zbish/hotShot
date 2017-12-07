@@ -2,47 +2,23 @@ import React, { Component } from 'react';
 import {Text,View,StyleSheet,Image} from 'react-native'
 import Rank from '../components/Rank'
 import RankLeader from '../components/RankLeader'
+import {sortArray,getLeaders,getLosers} from '../utils'
 
 
-function sort(array)
-{
-  array.sort((a, b) => a.points < b.points) 
-  return (array)
-}
-function leaders(array){
-  leadersPlayers =[]   
-  for(i=0 ; i < 3 ; i++)
-    {
-      if(array[i] == null)
-        {
-          return (leadersPlayers)
-        }
-        else{
-          leadersPlayers.push(array[i]) 
-        }
-    }
-  return (leadersPlayers)
-}
+export default class Ranking extends Component {
 
-function loserss(array){
-  losers = []  
-  for(i=3 ; i < array.length ; i++)
-      {
-         losers.push(array[i]) 
-      }
-      return(losers)
-}
-const Ranking = (props) => {
-     var playerPoints =  props.rankList
-     var players = sort(playerPoints)
-     var leader = leaders(players)
-     var losers = loserss(players)
+     render() {
+      const props = this.props
+      const playerPoints =  props.rankList
+      const players = sortArray(playerPoints)
+      const leaders = getLeaders(players)
+      const losers = getLosers(players)
     return (
       <View style={styles.container}>
-          <Text style={styles.text}>LeaderBoard</Text>
+          <Text style={styles.leaderBoard}>LeaderBoard</Text>
           <View style={styles.content}>
           {
-            leader.map((item, index) => {
+            leaders.map((item, index) => {
             return <RankLeader key={index} 
                                item={item}
                                place={index+1}
@@ -63,18 +39,18 @@ const Ranking = (props) => {
       </View>
     );
   }
-
+}
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'gray',
-      margin:5,
+      backgroundColor: '#2E8B57',
       padding:5
     },
-    text:{
+    leaderBoard:{
       alignSelf:'center',
-      color:'black',
-      fontSize:20
-      
+      color:'#F5FFFA',
+      fontSize:30,
+      fontWeight: 'bold',
+     
   },
     content:{
         flexDirection:'row',
@@ -83,4 +59,3 @@ const styles = StyleSheet.create({
     },
   
   });
-  export default Ranking;

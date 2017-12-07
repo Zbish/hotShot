@@ -14,7 +14,7 @@ import fieldImage from '../images/app/field.jpg'
   }
   selectLeague(league) {
     this.props.setCurrentLeague(league.name);
-    this.props.navigation.navigate('League');
+    this.props.navigation.navigate('League',{title:league.name});
   }
 
   render() {
@@ -44,17 +44,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
     },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-    },
   });
+
+  
   function mapStateToProps (state) {
     return {
       leagues: state.leagues

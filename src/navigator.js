@@ -33,7 +33,7 @@ export default RootStackNavigator = StackNavigator(
     League:{
       screen:league,
       navigationOptions: {
-        headerStyle: { backgroundColor: 'green' },
+        headerStyle: { backgroundColor: '#228B22' },
         headerTitleStyle: { color: '#e2ac56' },
       }
     }

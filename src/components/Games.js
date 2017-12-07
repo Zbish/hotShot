@@ -3,13 +3,14 @@ import {Text,View,StyleSheet,FlatList,Slider} from 'react-native'
 import Game from '../components/Game'
 import Bets from '../components/Bets'
 import _ from 'lodash';
-import {withoutTime} from '../utils';
+import {withoutTime,} from '../utils';
 import moment from 'moment';
 
 export default class Games extends Component {
   constructor(props) {
     super(props)
   }
+
   renderIf(condition, content) {
     if (condition) {
         return content;
@@ -18,8 +19,7 @@ export default class Games extends Component {
     }
 }
   render() {
-   
-    var betsComp = false
+    let betsComp = false
     if('bets' in this.props.gamesList[0])
       {
         betsComp = true
@@ -36,7 +36,7 @@ export default class Games extends Component {
             return (
               <View key={date}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.leagueData}>{moment(date).format('MMMM Do YYYY')}</Text>
+                  <Text style={styles.text}>{moment(date).format('MMMM Do YYYY')}</Text>
                 </View>
                 {
                   games.map((item, index) => {
@@ -65,23 +65,15 @@ export default class Games extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'gray',
-      padding:5,
-      borderColor: '#fff',
-      borderRadius: 10,
-      borderWidth: 0.6,
+      backgroundColor: '#228b22',
+     marginTop:5,
     },
     dateContainer:{
-
+      backgroundColor: '#FF8C00',
           },
-    header:{
-        flexDirection:'row',
-        alignSelf: 'stretch',
-        justifyContent: 'space-between',
-    },
-    leagueData:{
+    text:{
         alignSelf:'center',
         color:'black',
-
+        fontWeight: 'bold'
     },
   });

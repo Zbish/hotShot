@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
 import {Text,View,Slider,StyleSheet} from 'react-native'
-
+import Ball from '../images/app/football.png'
 
 export default class Bets extends Component {
   
@@ -35,7 +35,7 @@ export default class Bets extends Component {
       {
         startvalue = 0
         startValue2 = 0
-      }
+      } 
     return (
         <View style={styles.betComponent}>
                   <Slider 
@@ -45,6 +45,7 @@ export default class Bets extends Component {
                       maximumValue={10}
                       value={startvalue}
                       onValueChange={(val) => this.onSlideTeam1(val)}
+            
                     />
                     <Text style={styles.score}>{item.guess.team1} : {item.guess.team2}</Text>
                     <Slider 
