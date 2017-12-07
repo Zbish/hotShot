@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import loginPage from'./screens/loginPage'
 import myLiga from'./screens/myLiga'
-import addliga from'./screens/addLiga'
+import addLeague from'./screens/addLeague'
 import league from'./screens/league'
 
 export default RootStackNavigator = StackNavigator(
@@ -22,10 +22,10 @@ export default RootStackNavigator = StackNavigator(
         headerTitleStyle: { color: '#e2ac56' },
       }
     },
-    AddLiga: {
-      screen: addliga,
+    AddLeague: {
+      screen:addLeague,
       navigationOptions: {
-        title: 'Add Liga',
+        title: 'Add League',
         headerStyle: { backgroundColor: 'green' },
         headerTitleStyle: { color: '#e2ac56' },
       }

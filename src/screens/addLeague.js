@@ -15,10 +15,10 @@ import {
 } from '../actions';
 import AddFriend from '../components/AddFriends'
 import AddGames from '../components/AddGames'
-import styles from './addLiga.style';
+import styles from './addLeague.style';
 
-class AddLeague extends Component {
-  addLiga() {
+class addLeague extends Component {
+  addLeague() {
     this.props.addNewLeague();
     this.props.navigation.navigate("MyLiga");
   }
@@ -67,7 +67,7 @@ class AddLeague extends Component {
             <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addGame={(game) => this.addGame(game)} />
           </View>
 
-          <Button title={'add league'} onPress={() => this.addLiga()} ></Button>
+          <Button title={'Add league'} onPress={() => this.addLeague()} ></Button>
         </View>
 
       </ImageBackground>
@@ -97,4 +97,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AddLeague)
+)(addLeague)
