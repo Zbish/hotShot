@@ -20,7 +20,7 @@ import styles from './addLeague.style';
 class addLeague extends Component {
   addLeague() {
     this.props.addNewLeague();
-    this.props.navigation.navigate("MyLiga");
+    this.props.navigation.navigate("MyLeague");
   }
   addPlayer(player) {
     this.props.addPlayer(player);
@@ -49,7 +49,7 @@ class addLeague extends Component {
           <View style={styles.sub2}>
             <AddFriend friends={this.props.friends}
               addPlayer={(name) => this.addPlayer(name)} />
-            <View style={styles.friendsInLiga}>
+            <View style={styles.friendsInleague}>
               <Text style={styles.text}>Players :</Text>
               {
                 this.props.leagues.newLeague.players.map((item, index) => {
@@ -61,7 +61,7 @@ class addLeague extends Component {
             </View>
           </View>
           <View style={styles.sub3}>
-            <View style={styles.gamesInLiga}>
+            <View style={styles.gamesInleague}>
               <Text style={styles.text}>Games : {this.props.leagues.newLeague.games.length}</Text>
             </View>
             <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addGame={(game) => this.addGame(game)} />

@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import {Text,View,Button,Image,ImageBackground,StyleSheet} from 'react-native'
-import LigaList from '../components/LigaList'
+import LeagueList from '../components/LeagueList'
 import { connect } from 'react-redux'
 import { addPerson, deletePerson, setCurrentLeague } from '../actions'
 import fieldImage from '../images/app/field.jpg'
- class MyLiga extends Component {
+ class MyLeague extends Component {
   constructor(props) {
     super(props)
   }
-  navigateTo(name,index,ligaName)
+  navigateTo(name,index,leagueName)
   {
-    this.props.navigation.navigate(name,{index:index,liganame:ligaName});
+    this.props.navigation.navigate(name,{index:index,leaguename:leagueName});
   }
   selectLeague(league) {
     this.props.setCurrentLeague(league.name);
-    this.props.navigation.navigate('Liga');
+    this.props.navigation.navigate('League');
   }
 
   render() {
@@ -24,7 +24,7 @@ import fieldImage from '../images/app/field.jpg'
        <ImageBackground source={fieldImage} style={styles.container}>
         {
           leagues.map((league, index) => {
-                            return <LigaList
+                            return <LeagueList
                                         key={index} item={league}
                                         league={league}
                                         onPress={(league)=>this.selectLeague(league)}
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   export default connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(MyLiga)
+  )(MyLeague)

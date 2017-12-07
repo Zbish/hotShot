@@ -29,11 +29,11 @@ export default StyleSheet.create({
   sub3:{
     flex:3
   },
-  friendsInLiga:{
+  friendsInleague:{
     flexDirection:'row',
 
   },
-  gamesInLiga:{
+  gamesInleague:{
     flexDirection:'column',
   },
   text:{

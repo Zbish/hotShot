@@ -6,7 +6,7 @@ import { View,
          TouchableHighlight,
          ImageBackground } from 'react-native'
 import Ball from '../images/app/football.png'
- const LigaList = ({league, onPress }) => {
+ const LeagueList = ({league, onPress }) => {
     const {players,games,name} = league
 
         return  <TouchableHighlight style={styles.highLight} underlayColor='grey' onPress={()=>onPress(league)}>
@@ -82,4 +82,4 @@ const styles = {
     }
 
 }
-export default LigaList;
+export default LeagueList;

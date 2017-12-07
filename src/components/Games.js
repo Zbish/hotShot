@@ -36,7 +36,7 @@ export default class Games extends Component {
             return (
               <View key={date}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.ligaData}>{moment(date).format('MMMM Do YYYY')}</Text>
+                  <Text style={styles.leagueData}>{moment(date).format('MMMM Do YYYY')}</Text>
                 </View>
                 {
                   games.map((item, index) => {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'space-between',
     },
-    ligaData:{
+    leagueData:{
         alignSelf:'center',
         color:'black',
 

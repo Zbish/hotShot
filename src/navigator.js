@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import loginPage from'./screens/loginPage'
-import myLiga from'./screens/myLiga'
+import myLeague from'./screens/MyLeague'
 import addLeague from'./screens/addLeague'
 import league from'./screens/league'
 
@@ -14,10 +14,10 @@ export default RootStackNavigator = StackNavigator(
         header: null,
       }),
     },
-    MyLiga: {
-      screen: myLiga,
+    MyLeague: {
+      screen: myLeague,
       navigationOptions: {
-        title: 'MY LIGA',
+        title: 'MY League',
         headerStyle: { backgroundColor: 'green' },
         headerTitleStyle: { color: '#e2ac56' },
       }
@@ -30,7 +30,7 @@ export default RootStackNavigator = StackNavigator(
         headerTitleStyle: { color: '#e2ac56' },
       }
     },
-    Liga:{
+    League:{
       screen:league,
       navigationOptions: {
         headerStyle: { backgroundColor: 'green' },
@@ -39,6 +39,6 @@ export default RootStackNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'MyLiga'
+    initialRouteName: 'MyLeague'
   },
 )
