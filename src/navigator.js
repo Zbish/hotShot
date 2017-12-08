@@ -18,23 +18,26 @@ export default RootStackNavigator = StackNavigator(
       screen: myLeague,
       navigationOptions: {
         title: 'MY League',
-        headerStyle: { backgroundColor: 'green' },
-        headerTitleStyle: { color: '#e2ac56' },
+        headerStyle: { backgroundColor: '#388E3C' },
+        headerTitleStyle: { color: '#FFFFFF' },
+        headerTintColor: '#FFFFFF'
       }
     },
     AddLeague: {
       screen:addLeague,
       navigationOptions: {
         title: 'Add League',
-        headerStyle: { backgroundColor: 'green' },
-        headerTitleStyle: { color: '#e2ac56' },
+        headerStyle: { backgroundColor: '#388E3C' },
+        headerTitleStyle: { color: '#FFFFFF' },
+        headerTintColor: '#FFFFFF'
       }
     },
     League:{
       screen:league,
       navigationOptions: {
-        headerStyle: { backgroundColor: '#228B22' },
-        headerTitleStyle: { color: '#e2ac56' },
+        headerStyle: { backgroundColor: '#388E3C' },
+        headerTitleStyle: { color: '#FFFFFF' },
+        headerTintColor: '#FFFFFF'
       }
     }
   },

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Text,View,StyleSheet,FlatList,Slider} from 'react-native'
+import { Text, View, StyleSheet, FlatList } from 'react-native'
 import Game from '../components/Game'
 import Bets from '../components/Bets'
 import _ from 'lodash';
-import {withoutTime,} from '../utils';
+import { withoutTime, } from '../utils';
 import moment from 'moment';
 
 export default class Games extends Component {
@@ -13,22 +13,22 @@ export default class Games extends Component {
 
   renderIf(condition, content) {
     if (condition) {
-        return content;
+      return content;
     } else {
-        return null;
+      return null;
     }
-}
+  }
   render() {
+    console.log('props' , this.props)
     let betsComp = false
-    if('bets' in this.props.gamesList[0])
-      {
-        betsComp = true
-      }
+    if ('bets' in this.props.gamesList[0]) {
+      betsComp = true
+    }
     const gamesByDate = _.chain(this.props.gamesList)
-                          .sortBy(["date"])
-                          .groupBy(game => {
-                            return withoutTime(game.date);
-                          }).value()
+      .sortBy(["date"])
+      .groupBy(game => {
+        return withoutTime(game.date);
+      }).value()
     return (
       <View style={styles.container}>
         {
@@ -36,27 +36,33 @@ export default class Games extends Component {
             return (
               <View key={date}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.text}>{moment(date).format('MMMM Do YYYY')}</Text>
+                  <Text style={styles.text}>{moment(date).format('dddd ,LL')}</Text>
                 </View>
                 {
                   games.map((item, index) => {
-                  return (
-                    <View key={index}>
-                  <Game item={item}
-                        onPress={(item)=>this.props.onPress(item)}
-                        
-                  ></Game>
-                  {this.renderIf(betsComp, 
-                    <Bets item={item} onSlide={(value)=>this.props.chengeMyBet(value,item.match)}></Bets>
-                    
-                )}
-                  </View>
-                  )
-                })
-              }
-            </View>
-          )}
-        )
+                    return (
+                      <View key={index}>
+                        <Game item={item}
+                          onPress={(item) => this.props.onPress(item)}
+
+                        ></Game>
+                        {this.renderIf(betsComp,
+                          <Bets item={item} onSlide={(value) => this.props.chengeMyBet(value, item.match)}></Bets>
+
+                        )}
+                        {/* <FlatList
+                          data={games}
+                          renderItem={({ item }) => <Game item={item}
+                          onPress={(item) => this.props.onPress(item)}/>}
+                        /> */}
+                      </View>
+                    )
+                  })
+                }
+              </View>
+            )
+          }
+          )
         }
       </View>
     );
@@ -64,16 +70,16 @@ export default class Games extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#228b22',
-     marginTop:5,
-    },
-    dateContainer:{
-      backgroundColor: '#FF8C00',
-          },
-    text:{
-        alignSelf:'center',
-        color:'black',
-        fontWeight: 'bold'
-    },
-  });
+  container: {
+    backgroundColor: '#C8E6C9',
+    marginTop: 5,
+  },
+  dateContainer: {
+    backgroundColor: '#BDBDBD',
+  },
+  text: {
+    alignSelf: 'center',
+    color: '#212121',
+    fontWeight: 'bold'
+  },
+});

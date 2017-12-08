@@ -61,7 +61,6 @@ export default (state, action) => {
           break;
           case Change_Bet:
             const newBet =  changeBet(state,action)
-            console.log('clone,' , newBet)
           return{
             ...state,
             ...newBet

@@ -3,7 +3,9 @@ import { ADD_NEW_LEAGUE,
         ADD_GAME_TO_NEW_LEAGUE,
         CHANGE_NAME_OF_NEW_LEAGUE,
         SET_CURRENT_LEAGUE,
-        Change_Bet } from './actionNames';
+        Change_Bet,
+        Change_Game_Score
+      } from './actionNames';
 
 export function addNewLeague() {
   return {
@@ -40,5 +42,12 @@ export function chengeBet(newBet) {
   return {
     type: Change_Bet,
     newBet
+  };
+}
+
+export function changeGameScore(newScore) {
+  return {
+    type: Change_Game_Score,
+    newScore
   };
 }

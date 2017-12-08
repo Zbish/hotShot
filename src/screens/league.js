@@ -8,7 +8,7 @@ import Ranking from '../components/Ranking'
 import { connect } from 'react-redux';
 import { compareDates,getLeagueGames,getRanking } from '../utils';
 import {
-  chengeBet
+  chengeBet,changeGameScore
 } from '../actions';
 
 class League extends Component {
@@ -20,13 +20,20 @@ class League extends Component {
     const bet = {value,match:match,leagueName:this.props.league.name,playerCode:1}
     this.props.chengeBet(bet)
   }
+  changeGameScoreTo(newScore){
+    this.props.changeGameScore(newScore)
+  }
   render() {  
     const games = getLeagueGames(this.props)
     const rankList = getRanking(games)
     return (
       <ScrollView style={styles.container}>
           <Ranking rankList={rankList}></Ranking>
-          <Games gamesList={games} chengeMyBet={(value,match)=>this.changeMyBet(value,match)} ></Games>
+          <Games gamesList={games} 
+                 chengeMyBet={(value,match)=>this.changeMyBet(value,match)} 
+                 changeGameScoreTo={(newScore)=>this.changeGameScoreTo(newScore)} 
+                 ></Games>
+                 
       </ScrollView>
     );
   }
@@ -50,6 +57,7 @@ const styles = StyleSheet.create({
   function mapDispatchToProps (dispatch) {
     return {
       chengeBet: (newBet) => dispatch(chengeBet(newBet)),
+      changeGameScore: (newScore) => dispatch(changeGameScore(newScore)),
     }
   }
 

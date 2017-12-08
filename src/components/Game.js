@@ -4,6 +4,8 @@ import {Text,View,Image,StyleSheet,TouchableHighlight} from 'react-native'
 import flags from '../images/Flags'
 import {getTimeOfDay} from '../utils';
 import {teams} from '../data'
+import ChangeScore from '../components/ChangeScore'
+
 export default class Game extends Component {
   render() {
     const {item} = this.props;
@@ -17,12 +19,14 @@ export default class Game extends Component {
                    <Image source={flags[team1.name]} style={styles.logo}></Image>
                     <Text style={styles.teamName}>{team1.name}</Text>
               </View>
+              <ChangeScore></ChangeScore>
               <View style={styles.scoreContainer}>
                   <Text style={styles.Text}>Match {item.match}</Text>
                   <Text style={styles.score}>{item.score.team1} : {item.score.team2}</Text>
                   {/* <Text style={styles.score}>{getTimeOfDay(item.date)}</Text> */}
                   <Text style={styles.Text} >Group {item.group}</Text>
               </View>
+              <ChangeScore></ChangeScore>
               <View style={styles.team}>
                     <Image source={flags[team2.name]} style={styles.logo}></Image>
                     <Text style={styles.teamName}>{team2.name}</Text>
@@ -48,7 +52,8 @@ const styles = StyleSheet.create({
       flex:3
   },
   teamName:{
-        alignSelf:'center'
+        alignSelf:'center',
+        color:'#212121'
     },
     logo:{
         width:30,
@@ -61,9 +66,10 @@ const styles = StyleSheet.create({
     score:{
         flex:1,
         alignSelf:'center',
-        color:'black'
+        color:'#212121'
     },
     Text:{
-      fontSize:12
+      fontSize:12,
+     
     }
   });

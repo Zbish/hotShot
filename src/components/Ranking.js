@@ -42,7 +42,7 @@ export default class Ranking extends Component {
 }
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#2E8B57',
+      backgroundColor: '#4CAF50',
       padding:5
     },
     leaderBoard:{

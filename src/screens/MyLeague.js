@@ -31,7 +31,7 @@ import fieldImage from '../images/app/field.jpg'
             />
           })
         }
-        <Button title='Add League' onPress={()=>this.navigateTo('AddLeague')}></Button>
+        <Button title='Add League' color='#FF5722' onPress={()=>this.navigateTo('AddLeague')}></Button>
      </ImageBackground>
     );
   }

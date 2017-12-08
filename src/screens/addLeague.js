@@ -67,7 +67,7 @@ class addLeague extends Component {
             <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addGame={(game) => this.addGame(game)} />
           </View>
 
-          <Button title={'Add league'} onPress={() => this.addLeague()} ></Button>
+          <Button title={'Add league'} color='#FF5722' onPress={() => this.addLeague()} ></Button>
         </View>
 
       </ImageBackground>

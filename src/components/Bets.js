@@ -1,7 +1,8 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
-import {Text,View,Slider,StyleSheet} from 'react-native'
-import Ball from '../images/app/football.png'
+import {Text,View,StyleSheet,Slider} from 'react-native'
+
+
 
 export default class Bets extends Component {
   
@@ -38,6 +39,7 @@ export default class Bets extends Component {
       } 
     return (
         <View style={styles.betComponent}>
+     
                   <Slider 
                   style={styles.sliders}
                       step={1}
@@ -45,8 +47,12 @@ export default class Bets extends Component {
                       maximumValue={10}
                       value={startvalue}
                       onValueChange={(val) => this.onSlideTeam1(val)}
-            
+                      thumbImage={require('../images/app/football3.png')}
+                      thumbTintColor={'#FF5722'}
+                      minimumTrackTintColor={'#4CAF50'}
+                      maximumTrackTintColor={'#FF5722'}
                     />
+                   
                     <Text style={styles.score}>{item.guess.team1} : {item.guess.team2}</Text>
                     <Slider 
                     style={styles.sliders}
@@ -55,6 +61,9 @@ export default class Bets extends Component {
                       maximumValue={10}
                       value={startValue2}
                       onValueChange={(val) => this.onSlideTeam2(val)}
+                      thumbTintColor={'#FF5722'}
+                      minimumTrackTintColor={'#4CAF50'}
+                      maximumTrackTintColor={'#FF5722'}
                     />
       </View>
     );
@@ -65,15 +74,16 @@ const styles = StyleSheet.create({
     betComponent:{
         flexDirection:'row',
       },
+
       score:{
         alignSelf:'center',
         padding:2,
         color:'black',
         fontSize:15,
-        backgroundColor: '#FC9F5B',
+        backgroundColor: '#FF5722',
     },
     sliders:{
-    flex:4
-      
+    flex:4,
+    
     }
   });
