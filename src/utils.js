@@ -1,15 +1,5 @@
 import _ from 'lodash';
 
-export const compareDates = (date1, date2) => {
-  var d1 = new Date(date1)
-  var d2 = new Date(date2)
-  if (d1.getDate() === d2.getDate()) {
-    console.log('abig')
-  } else {
-    console.log('small')
-  }
-}
-
 export const withoutTime = function (ticks) {
   const d = new Date(ticks);
   d.setHours(0, 0, 0, 0);
@@ -75,6 +65,24 @@ export const compareScore = function(score,guess){
 
   return points
 }
+
+export const changeScore = function(state,newScore){
+  var clone = _.cloneDeep(state);
+  var gameIndex = _.findIndex(clone.rounds[0], function(l) { return l.match == newScore.newScore.match; })
+ 
+if(newScore.newScore.team == 1)
+  {
+    var game = clone.rounds[0]
+    game[gameIndex].score.team1 += newScore.newScore.score
+  }
+else{
+  var game = clone.rounds[0]
+  game[gameIndex].score.team2 += newScore.newScore.score
+}
+  
+return clone
+}
+
 
 export const changeBet = function(state,newBet){
   var clone = _.cloneDeep(state);

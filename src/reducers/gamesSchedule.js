@@ -1,14 +1,16 @@
 // reducers/gamesSchedule.js
 import { rounds } from '../data/index';
 import {Change_Game_Score} from '../actions/actionNames'
+import {changeScore} from '../utils'
+
 
 export default (state, action) => {
   switch(action.type) {
     case Change_Game_Score:
-    console.log('sabbabba',action)
+    const newState = changeScore(state,action)
     return{
       ...state,
-     
+      ...newState
     };
     break;
     default:

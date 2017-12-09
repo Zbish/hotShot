@@ -15,7 +15,7 @@ export default class Bets extends Component {
     this.props.onSlide(obj)
    }
   render() {
-    console.log('bets,' , this.props.item)
+    // console.log('bets,' , this.props.item) russia saudiarabia fall
     var item
     if(!this.props.item.bets.length)
       {

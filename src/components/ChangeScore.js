@@ -10,8 +10,14 @@ export default class changeScore extends Component {
   render() {
     return (
           <View style={styles.wraper}>
-            <Button title={'+'} color="#212121"></Button>
-            <Button title={'-'} color="#757575"></Button>
+            <Button title={'+'}
+                    color="#212121"
+                    onPress={()=>this.props.changeGameScoreTo(1)}
+            ></Button>
+            <Button title={'-'}
+                    color="#757575"
+                    onPress={()=>this.props.changeGameScoreTo(-1)}
+          ></Button>
           </View>
     );
   }

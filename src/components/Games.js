@@ -19,7 +19,6 @@ export default class Games extends Component {
     }
   }
   render() {
-    console.log('props' , this.props)
     let betsComp = false
     if ('bets' in this.props.gamesList[0]) {
       betsComp = true
@@ -44,10 +43,12 @@ export default class Games extends Component {
                       <View key={index}>
                         <Game item={item}
                           onPress={(item) => this.props.onPress(item)}
-
+                          changeGameScoreTo={(value) => this.props.changeGameScoreTo(value)}      
                         ></Game>
                         {this.renderIf(betsComp,
-                          <Bets item={item} onSlide={(value) => this.props.chengeMyBet(value, item.match)}></Bets>
+                          <Bets item={item}
+                                 onSlide={(value) => this.props.chengeMyBet(value, item.match)}
+                          ></Bets>
 
                         )}
                         {/* <FlatList
