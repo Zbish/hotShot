@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native'
-import friends from '../data/friends'
+import friends from '../../data/friends'
 import _ from 'lodash';
-import { getIndex } from '../utils'
+import { getIndex } from '../../utils'
 
 export default class Rank extends Component {
     render() {
@@ -13,7 +13,7 @@ export default class Rank extends Component {
             <View style={styles.wrapper}>
                 <View style={styles.container}>
                     <Text style={styles.text}>{place}</Text>
-                    <Image style={styles.image} source={require('../images/users/caspi.jpg')}></Image>
+                    <Image style={styles.image} source={require('../../images/users/caspi.jpg')}></Image>
                     <Text style={styles.text}>{player.name}</Text>
                     <Text style={styles.text}>{'    '}{item.points}</Text>
                 </View>

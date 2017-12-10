@@ -150,3 +150,15 @@ export const getIndex = function(code,array)
   var codes = _.findIndex(array, function(o) { return o.code == code; });
     return  codes
 }
+
+export const imageBorder = function(value){
+  var color = value == 1 ? 'gold' :
+              value == 2 ? 'silver' : '#665D1E'
+    var size = value == 1 ? 110 :
+               value == 2 ? 100 : 95
+  return{     
+  borderColor: color,
+  width:size,
+  height:size,
+    }
+}

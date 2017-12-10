@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Text,View,StyleSheet,Image} from 'react-native'
-import Rank from '../components/Rank'
-import RankLeader from '../components/RankLeader'
-import {sortArray,getLeaders,getLosers} from '../utils'
+import Rank from './Rank'
+import RankLeader from './RankLeader'
+import {sortArray,getLeaders,getLosers} from '../../utils'
 
 
 export default class Ranking extends Component {
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignSelf: 'stretch',
         justifyContent: 'space-between',
+        flex:1
     },
   
   });
