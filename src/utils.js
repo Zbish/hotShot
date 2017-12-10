@@ -43,29 +43,21 @@ export const getRanking = function(games){
   })
   return players
 }
-
 export const compareScore = function(score,guess){
-  var points = 0
-     if(score.team1 == guess.team1 && guess.team2 == score.team2)
-      {
-        points = 3
-        return points
-      }
-      else if(score.team1 == score.team2 && guess.team1 == guess.team2){
-        points = 1
-        return points
-      }
-      else if(score.team1 > score.team2 && guess.team1 > guess.team2){
-        points = 1
-        return points
-      }else if(score.team1 < score.team2 && guess.team1 < guess.team2){
-        points = 1
-        return points
-      }
-
+  const hit = score.team1 == guess.team1 &&
+              guess.team2 == score.team2
+  const hit2 = score.team1 == score.team2 &&
+               guess.team1 == guess.team2
+  const hit3 = score.team1 > score.team2 &&
+               guess.team1 > guess.team2
+  const hit4 = score.team1 < score.team2 &&
+               guess.team1 < guess.team2
+  var points = hit ? 3 :
+               hit2 ? 1 :
+               hit3 ? 1 :
+                hit4 ? 1 : 0
   return points
 }
-
 export const changeScore = function(state,newScore){
   var clone = _.cloneDeep(state);
   var gameIndex = _.findIndex(clone.rounds[0], function(l) { return l.match == newScore.newScore.match; })
@@ -91,30 +83,25 @@ export const changeBet = function(state,newBet){
   var gamesIndex = _.findIndex(clone.leagues[leagueIndex].games, function(l) { return l.gameNumber == newBet.match; })
   var bet = _.findIndex(clone.leagues[leagueIndex].games[gamesIndex].bets, function(l) { return l.playerCode == newBet.playerCode; })
  
+  var team1Score = {
+    playerCode: newBet.playerCode,
+    guess: {
+      team2: 0,
+      team1: newBet.value.bet
+    }
+  }
+  var team2Score  = {
+    playerCode: newBet.playerCode,
+    guess: {
+      team2: newBet.value.bet,
+      team1: 0
+    }
+  }
   if(bet == -1)
     {
-      if(newBet.value.team == 1)
-        {
-          var player = {
-            playerCode: newBet.playerCode,
-            guess: {
-              team2: 0,
-              team1: newBet.value.bet
-            }
-          }
-        }
-      else{
-        var player = {
-          playerCode: newBet.playerCode,
-          guess: {
-            team2: newBet.value.bet,
-            team1: 0
-          }
-        }
-      }
-     
+     var player = newBet.value.team == 1 ? team1Score :
+                                           team2Score
       clone.leagues[leagueIndex].games[gamesIndex].bets.push(player)
-      
     }
     else{
       if(newBet.value.team == 1)
