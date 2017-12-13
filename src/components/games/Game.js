@@ -1,11 +1,11 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
 import {Text,View,Image,StyleSheet,TouchableHighlight} from 'react-native'
-import flags from '../images/Flags'
-import {getTimeOfDay} from '../utils';
-import {teams} from '../data'
-import ChangeScore from '../components/ChangeScore'
-import Bets from '../components/Bets'
+import flags from '../../images/Flags'
+import {getTimeOfDay} from '../../utils';
+import {teams} from '../../data'
+import ChangeScore from './ChangeScore'
+import Bets from './Bets'
 
 export default class Game extends Component {
   renderIf(condition, content) {

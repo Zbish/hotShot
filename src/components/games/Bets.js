@@ -47,7 +47,7 @@ export default class Bets extends Component {
                       maximumValue={10}
                       value={startvalue}
                       onValueChange={(val) => this.onSlideTeam1(val)}
-                      thumbImage={require('../images/app/football3.png')}
+                      thumbImage={require('../../images/app/football3.png')}
                       thumbTintColor={'#FF5722'}
                       minimumTrackTintColor={'#4CAF50'}
                       maximumTrackTintColor={'#FF5722'}

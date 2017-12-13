@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, FlatList } from 'react-native'
-import Game from '../components/Game'
-import Bets from '../components/Bets'
+import Game from './Game'
 import _ from 'lodash';
-import { withoutTime, } from '../utils';
+import { withoutTime, } from '../../utils';
 import moment from 'moment';
 
 export default class Games extends Component {
@@ -37,7 +36,7 @@ export default class Games extends Component {
             return (
               <View key={date}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.text}>{moment.utc(date).format('dddd ,LL')}</Text>
+                  <Text style={styles.text}>{moment(date).format('dddd ,LL')}</Text>
                 </View>
                 <FlatList
                           data={games}

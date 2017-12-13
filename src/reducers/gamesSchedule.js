@@ -1,11 +1,10 @@
 // reducers/gamesSchedule.js
-import { rounds } from '../data/index';
+import { rounds, final,samiFinals,quarterFinals,roundOf16 } from '../data/index';
 import {Change_Game_Score} from '../actions/actionNames'
 import {changeScore} from '../utils'
 
 
 export default (state, action) => {
-  console.log('rounds' , rounds)
   switch(action.type) {
     case Change_Game_Score:
     const newState = changeScore(state,action)
@@ -16,7 +15,11 @@ export default (state, action) => {
     break;
     default:
     return state || {
-        rounds:rounds
+        rounds:rounds,
+        roundOf16:roundOf16,
+        quarterFinals:quarterFinals,
+        samiFinals:samiFinals,
+        final:final,
     };
   }
 }

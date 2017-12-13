@@ -14,7 +14,7 @@ import {
   changeNameOfNewLeague
 } from '../actions';
 import AddFriend from '../components/AddFriends'
-import AddGames from '../components/AddGames'
+import AddGames from '../components/games/AddGames'
 import styles from './addLeague.style';
 
 class addLeague extends Component {
@@ -34,7 +34,6 @@ class addLeague extends Component {
   }
 
   render() {
-
     return (
       <ImageBackground source={require('../images/app/field.jpg')} style={styles.wrapper}>
         <View style={styles.container}>

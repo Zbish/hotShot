@@ -5,7 +5,6 @@ import {Text,
   Button,
   ImageBackground,
   TextInput} from 'react-native'
-import Games from './Games'
 export default class changeScore extends Component {
   render() {
     return (

@@ -3,7 +3,7 @@ import {Text,
         View,
         StyleSheet,
         ScrollView} from 'react-native'
-import Games from '../components/Games'
+import Games from '../components/games/Games'
 import Ranking from '../components/ranking/Ranking'
 import { connect } from 'react-redux';
 import { compareDates,getLeagueGames,getRanking } from '../utils';
