@@ -10,6 +10,7 @@ import {
 import Ball from '../images/app/football.png'
 export default class LeagueList extends Component {
     render() {
+        console.log('store' , this.props)
         const { players, games, name} = this.props.league
         return <TouchableHighlight style={styles.wrapper} underlayColor='grey' onPress={() => this.props.onPress(this.props.league)}>
             <View style={styles.container}>

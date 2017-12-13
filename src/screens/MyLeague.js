@@ -10,7 +10,8 @@ import fieldImage from '../images/app/field.jpg'
   }
   navigateTo(name,index,leagueName)
   {
-    this.props.navigation.navigate(name,{index:index,leaguename:leagueName});
+    this.props.navigation.navigate(name);
+    // this.props.navigation.navigate(name,{index:index,leaguename:leagueName});
   }
   selectLeague(league) {
     this.props.setCurrentLeague(league.name);
@@ -25,7 +26,7 @@ import fieldImage from '../images/app/field.jpg'
         {
           leagues.map((league, index) => {
                             return <LeagueList
-                                        key={index} item={league}
+                                        key={index}
                                         league={league}
                                         onPress={(league)=>this.selectLeague(league)}
             />

@@ -54,6 +54,7 @@ export default (state, action) => {
           }
           break;
         case SET_CURRENT_LEAGUE:
+              console.log('state', state)
           return{
             ...state,
             currentLeague: _.find(state.leagues, {name: action.name})

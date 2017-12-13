@@ -5,14 +5,28 @@ import flags from '../images/Flags'
 import {getTimeOfDay} from '../utils';
 import {teams} from '../data'
 import ChangeScore from '../components/ChangeScore'
+import Bets from '../components/Bets'
 
 export default class Game extends Component {
+  renderIf(condition, content) {
+    if (condition) {
+      return content;
+    } else {
+      return null;
+    }
+  }
   render() {
     const {item} = this.props;
+    let betsComp = false
+    if ('bets' in item) {
+      betsComp = true
+    }
+
     const team1 = _.find(teams, {code: item.team1})
     const team2 = _.find(teams, {code: item.team2})
     return (
       <TouchableHighlight style={styles.wrapper} underlayColor='grey' onPress={()=>this.props.onPress(item)} >
+        <View>
         <View style={styles.container}>
         <View style={styles.team}>
                    <Image source={flags[team1.name]} style={styles.logo}></Image>
@@ -30,6 +44,13 @@ export default class Game extends Component {
                     <Image source={flags[team2.name]} style={styles.logo}></Image>
                     <Text style={styles.teamName}>{team2.name}</Text>
               </View>
+             
+        </View>
+        {this.renderIf(betsComp, 
+          <Bets item={item}
+              onSlide={(value) => this.props.chengeMyBet(value, item.match)}
+        ></Bets>
+        )}
         </View>
       </TouchableHighlight>
     );

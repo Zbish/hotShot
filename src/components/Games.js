@@ -23,11 +23,13 @@ export default class Games extends Component {
     if ('bets' in this.props.gamesList[0]) {
       betsComp = true
     }
+   
     const gamesByDate = _.chain(this.props.gamesList)
-      .sortBy(["date"])
-      .groupBy(game => {
-        return withoutTime(game.date);
-      }).value()
+                          .sortBy(["date"])
+                          .groupBy(game => {
+                            return withoutTime(game.date);
+                          }).value()
+     
     return (
       <View style={styles.container}>
         {
@@ -35,31 +37,16 @@ export default class Games extends Component {
             return (
               <View key={date}>
                 <View style={styles.dateContainer}>
-                  <Text style={styles.text}>{moment(date).format('dddd ,LL')}</Text>
+                  <Text style={styles.text}>{moment.utc(date).format('dddd ,LL')}</Text>
                 </View>
-                {
-                  games.map((item, index) => {
-                    return (
-                      <View key={index}>
-                        <Game item={item}
-                          onPress={(item) => this.props.onPress(item)}
-                          changeGameScoreTo={(value) => this.props.changeGameScoreTo(value)}      
-                        ></Game>
-                        {this.renderIf(betsComp,
-                          <Bets item={item}
-                                 onSlide={(value) => this.props.chengeMyBet(value, item.match)}
-                          ></Bets>
-
-                        )}
-                        {/* <FlatList
+                <FlatList
                           data={games}
                           renderItem={({ item }) => <Game item={item}
+                          changeGameScoreTo={(value) => this.props.changeGameScoreTo(value)}
+                          chengeMyBet={(value,match)=>this.props.chengeMyBet(value,match)}
                           onPress={(item) => this.props.onPress(item)}/>}
-                        /> */}
-                      </View>
-                    )
-                  })
-                }
+                          keyExtractor={(item, index) => index}
+                        />
               </View>
             )
           }

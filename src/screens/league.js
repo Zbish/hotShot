@@ -10,7 +10,6 @@ import { compareDates,getLeagueGames,getRanking } from '../utils';
 import {
   chengeBet,changeGameScore
 } from '../actions';
-
 class League extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `${navigation.state.params.title}`,
@@ -24,6 +23,7 @@ class League extends Component {
     this.props.changeGameScore(newScore)
   }
   render() {  
+
     const games = getLeagueGames(this.props)
     const rankList = getRanking(games)
     return (
@@ -32,8 +32,7 @@ class League extends Component {
           <Games gamesList={games} 
                  chengeMyBet={(value,match)=>this.changeMyBet(value,match)} 
                  changeGameScoreTo={(newScore)=>this.changeGameScoreTo(newScore)} 
-                 ></Games>
-                 
+        ></Games>    
       </ScrollView>
     );
   }
@@ -47,6 +46,7 @@ const styles = StyleSheet.create({
   });
 
   function mapStateToProps (state) {
+  
     return {
       league: state.leagues.currentLeague,
       teams:state.teams,

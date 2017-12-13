@@ -5,6 +5,7 @@ import {changeScore} from '../utils'
 
 
 export default (state, action) => {
+  console.log('rounds' , rounds)
   switch(action.type) {
     case Change_Game_Score:
     const newState = changeScore(state,action)

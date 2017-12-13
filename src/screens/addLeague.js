@@ -34,6 +34,7 @@ class addLeague extends Component {
   }
 
   render() {
+
     return (
       <ImageBackground source={require('../images/app/field.jpg')} style={styles.wrapper}>
         <View style={styles.container}>
@@ -64,7 +65,7 @@ class addLeague extends Component {
             <View style={styles.gamesInleague}>
               <Text style={styles.text}>Games : {this.props.leagues.newLeague.games.length}</Text>
             </View>
-            <AddGames style={styles.games} games={this.props.games} teams={this.props.team} addGame={(game) => this.addGame(game)} />
+            <AddGames style={styles.games} games={this.props.gamesSchedule} teams={this.props.team} addGame={(game) => this.addGame(game)} />
           </View>
 
           <Button title={'Add league'} color='#FF5722' onPress={() => this.addLeague()} ></Button>
@@ -79,9 +80,9 @@ class addLeague extends Component {
 function mapStateToProps(state) {
   return {
     leagues: state.leagues,
-    games: state.games,
     team: state.team,
-    friends: state.friends
+    friends: state.friends,
+    gamesSchedule:state.gamesSchedule
   }
 }
 

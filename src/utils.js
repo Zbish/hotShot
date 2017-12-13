@@ -14,8 +14,9 @@ export const getTimeOfDay = function(ticks) {
 }
 
 export const getLeagueGames = function(props){
-    var schedule = props.gamesSchedule.rounds[0]
-    var leagueGames = props.league.games
+  
+    var schedule = _.cloneDeep(props.gamesSchedule.rounds[0])
+    var leagueGames = _.cloneDeep(props.league.games)
     var games = []
 
         _.forEach(leagueGames,function(value){
@@ -23,6 +24,7 @@ export const getLeagueGames = function(props){
       g.bets = value.bets
       games.push(g)
     })
+
    return games
 }
 

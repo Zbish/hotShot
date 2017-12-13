@@ -3,6 +3,8 @@ import { addNavigationHelpers } from "react-navigation";
 import {connect, Provider} from 'react-redux';
 import RootStackNavigator from './src/navigator';
 import configureStore from './configureStore'
+//no yellow massege in app 
+// console.ignoredYellowBox = ['Warning: BackAndroid']
 const store = configureStore()
 
 const AppWithNavigationState = connect(state => {

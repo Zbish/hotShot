@@ -15,7 +15,7 @@ export default class Bets extends Component {
     this.props.onSlide(obj)
    }
   render() {
-    // console.log('bets,' , this.props.item) russia saudiarabia fall
+   
     var item
     if(!this.props.item.bets.length)
       {
@@ -51,6 +51,7 @@ export default class Bets extends Component {
                       thumbTintColor={'#FF5722'}
                       minimumTrackTintColor={'#4CAF50'}
                       maximumTrackTintColor={'#FF5722'}
+                      disabled={false}
                     />
                    
                     <Text style={styles.score}>{item.guess.team1} : {item.guess.team2}</Text>
@@ -64,6 +65,7 @@ export default class Bets extends Component {
                       thumbTintColor={'#FF5722'}
                       minimumTrackTintColor={'#4CAF50'}
                       maximumTrackTintColor={'#FF5722'}
+                      disabled={false}
                     />
       </View>
     );
