@@ -16,7 +16,10 @@ export {
   samiFinals,
   roundOf16,
   leagues,
-  friends
+  friends,
+  round1,
+  round2,
+  round3
 }
 
 export const rounds = [
